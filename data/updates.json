@@ -1,0 +1,32 @@
+[
+  {
+    "id": "research-grant-awarded",
+    "title": "New Research Grant Awarded",
+    "date": "2024-05-15",
+    "category": "Research",
+    "summary": "Supporting a new study to better understand the role of WDR5.",
+    "image": "assets/images/update-research.jpg",
+    "content": "The WDR5 Foundation is supporting a focused research project designed to improve understanding of WDR5-related pathways and identify promising directions for future study.",
+    "featured": true
+  },
+  {
+    "id": "community-spotlight",
+    "title": "Community Spotlight",
+    "date": "2024-04-28",
+    "category": "Community",
+    "summary": "Meet the families and advocates making a difference every day.",
+    "image": "assets/images/update-community.jpg",
+    "content": "Our community spotlight series shares lived experience, practical knowledge and the many ways families are helping one another feel less alone.",
+    "featured": true
+  },
+  {
+    "id": "understanding-wdr5-webinar",
+    "title": "Understanding WDR5 Webinar",
+    "date": "2024-04-10",
+    "category": "Events",
+    "summary": "Join our upcoming webinar with leading experts in the field.",
+    "image": "assets/images/update-webinar.jpg",
+    "content": "This introductory webinar brings researchers, clinicians and families together for a clear overview of current knowledge and an open community question session.",
+    "featured": true
+  }
+]

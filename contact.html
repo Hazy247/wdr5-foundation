@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact the WDR5 Foundation.">
+  <title>Contact | WDR5 Foundation</title>
+  <link rel="icon" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div data-site-header></div>
+  <main id="main">
+    <section class="inner-hero">
+      <div class="shell"><div class="inner-hero-copy"><span class="eyebrow">We are listening</span><h1>Contact us</h1><p>Questions, ideas and introductions are welcome. Choose the topic that best fits and the right person can follow up.</p></div></div>
+    </section>
+
+    <section class="section">
+      <div class="shell form-layout">
+        <form class="form-card" data-static-form data-form-name="contact" data-endpoint="">
+          <h2>Send a message</h2>
+          <p>Connect a secure form endpoint before launch to receive these submissions.</p>
+          <div class="field-grid">
+            <div class="field"><label for="contact-name">Name</label><input id="contact-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="field"><label for="contact-topic">Topic</label><select id="contact-topic" name="topic" required><option value="">Choose a topic</option><option>Family support</option><option>Clinical question</option><option>Research collaboration</option><option>Donation or partnership</option><option>Media</option><option>Website feedback</option><option>Other</option></select></div>
+          <div class="field"><label for="contact-message">Message</label><textarea id="contact-message" name="message" required></textarea></div>
+          <label class="check-field"><input type="checkbox" name="consent" required><span>I agree that the foundation may use this information to respond to my message.</span></label>
+          <button class="button button-purple" type="submit">Send message</button>
+          <p class="form-status" data-form-status aria-live="polite"></p>
+        </form>
+
+        <aside>
+          <div class="callout">
+            <span class="eyebrow">Ways to connect</span>
+            <h3>Find the right route</h3>
+            <div class="contact-list">
+              <div class="contact-item"><span style="font-size:26px">♡</span><div><strong>Families</strong><span>Support, connection and registration questions</span></div></div>
+              <div class="contact-item"><span style="font-size:26px">⌕</span><div><strong>Researchers and clinicians</strong><span>Collaboration, resources and study opportunities</span></div></div>
+              <div class="contact-item"><span style="font-size:26px">✦</span><div><strong>Partners</strong><span>Funding, sponsorship and awareness activity</span></div></div>
+            </div>
+          </div>
+          <div class="notice" style="margin-top:20px">This form is not for urgent medical advice. Contact your clinical team or local emergency service when immediate help is needed.</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

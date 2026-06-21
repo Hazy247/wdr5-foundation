@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Updates Admin | WDR5 Foundation</title>
+  <link rel="icon" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/updates.js" defer></script>
+  <script src="assets/js/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div data-site-header></div>
+  <main id="main" class="admin-shell">
+    <div class="shell">
+      <div class="admin-intro">
+        <div><span class="eyebrow">Content management</span><h1>Updates admin</h1><p>Add, edit and publish posts to <code>data/updates.json</code>. This approach works on GitHub Pages without a separate database.</p></div>
+        <a class="button button-outline-dark" href="updates.html">View public updates</a>
+      </div>
+
+      <div class="admin-status" data-admin-status aria-live="polite">Loading the current updates…</div>
+
+      <section class="admin-panel" data-admin-connection>
+        <h2>Connect to GitHub</h2>
+        <p>Use a fine-grained personal access token limited to this repository with <strong>Contents: Read and write</strong>. The token is kept in this browser tab only.</p>
+        <div class="connection-grid">
+          <div class="field"><label for="github-repo">Repository</label><input id="github-repo" placeholder="owner/repository"></div>
+          <div class="field"><label for="github-branch">Branch</label><input id="github-branch" value="main"></div>
+          <div class="field"><label for="github-path">Updates path</label><input id="github-path" value="data/updates.json"></div>
+          <div class="field"><label for="github-token">Fine-grained access token</label><input id="github-token" type="password" autocomplete="off" placeholder="github_pat_…"></div>
+        </div>
+        <div class="admin-actions">
+          <button class="button button-purple" type="button" data-connect-github>Connect and load</button>
+          <button class="button button-outline-dark" type="button" data-load-public>Load public copy</button>
+          <button class="button button-teal" type="button" data-publish-github>Publish to GitHub</button>
+          <button class="button button-outline-dark" type="button" data-export-json>Download JSON</button>
+        </div>
+      </section>
+
+      <div class="admin-workspace">
+        <section class="admin-panel">
+          <h2 data-editor-title>Add an update</h2>
+          <p>Save changes to the working list, review them, then publish.</p>
+          <form data-admin-editor>
+            <div class="field"><label for="post-title">Title</label><input id="post-title" name="title" required></div>
+            <div class="field-grid">
+              <div class="field"><label for="post-date">Date</label><input id="post-date" name="date" type="date" required></div>
+              <div class="field"><label for="post-category">Category</label><select id="post-category" name="category" required><option>Research</option><option>Community</option><option>Events</option><option>Foundation</option></select></div>
+            </div>
+            <div class="field"><label for="post-summary">Short summary</label><textarea id="post-summary" name="summary" style="min-height:90px" required></textarea></div>
+            <div class="field"><label for="post-image">Image URL or site path</label><input id="post-image" name="image" placeholder="assets/images/example.jpg"></div>
+            <div class="field"><label for="post-content">Post content</label><textarea id="post-content" name="content" required></textarea></div>
+            <label class="check-field"><input id="post-featured" name="featured" type="checkbox" checked><span>Show this post in the homepage latest-updates panel.</span></label>
+            <div class="admin-actions">
+              <button class="button button-purple" type="submit">Save to working list</button>
+              <button class="button button-outline-dark" type="button" data-clear-editor>Clear</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="admin-panel">
+          <h2>Current posts</h2>
+          <p>Changes here remain local until you select “Publish to GitHub.”</p>
+          <div class="admin-posts" data-admin-list></div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>
