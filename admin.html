@@ -98,16 +98,32 @@
       <div class="admin-workspace">
         <section class="admin-panel">
           <h2 data-editor-title>Add an update</h2>
-          <p>Save this into the draft list, review it, then publish to GitHub when ready.</p>
+          <p>Use the short fields for the update tile, then write the longer article body underneath. Save it into the draft list, review it, then publish to GitHub when ready.</p>
           <form data-admin-editor>
-            <div class="field"><label for="post-title">Title</label><input id="post-title" name="title" required></div>
+            <div class="field">
+              <label for="post-title">Article title</label>
+              <input id="post-title" name="title" required>
+              <span class="field-help">This appears on the tile and at the top of the full article page.</span>
+            </div>
             <div class="field-grid">
               <div class="field"><label for="post-date">Date</label><input id="post-date" name="date" type="date" required></div>
               <div class="field"><label for="post-category">Category</label><select id="post-category" name="category" required><option>Research</option><option>Community</option><option>Events</option><option>Foundation</option></select></div>
             </div>
-            <div class="field"><label for="post-summary">Short summary</label><textarea id="post-summary" name="summary" style="min-height:90px" required></textarea></div>
-            <div class="field"><label for="post-image">Image URL or site path</label><input id="post-image" name="image" placeholder="assets/images/example.jpg"></div>
-            <div class="field"><label for="post-content">Post content</label><textarea id="post-content" name="content" required></textarea></div>
+            <div class="field">
+              <label for="post-summary">Tile summary</label>
+              <textarea id="post-summary" name="summary" style="min-height:90px" required></textarea>
+              <span class="field-help">A short teaser for the updates page tile and homepage latest-updates panel.</span>
+            </div>
+            <div class="field">
+              <label for="post-image">Tile/article image URL or site path</label>
+              <input id="post-image" name="image" placeholder="assets/images/example.jpg">
+              <span class="field-help">This image appears on the tile and at the top of the full article.</span>
+            </div>
+            <div class="field">
+              <label for="post-content">Full article body</label>
+              <textarea id="post-content" name="content" class="article-editor" required></textarea>
+              <span class="field-help">Use blank lines for new paragraphs. You can also use ## Headings and - bullet points.</span>
+            </div>
             <label class="check-field"><input id="post-featured" name="featured" type="checkbox" checked><span>Show this post in the homepage latest-updates panel.</span></label>
             <div class="admin-actions">
               <button class="button button-purple" type="submit">Save update draft</button>

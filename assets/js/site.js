@@ -98,7 +98,9 @@ function renderHeader() {
   if (!mount) return;
 
   const nav = WDR5.nav.map(([label, href]) => {
-    const active = pageName === href || (pageName === "" && href === "index.html");
+    const active = pageName === href
+      || (pageName === "" && href === "index.html")
+      || (pageName === "update.html" && href === "updates.html");
     return `<a class="nav-link${active ? " is-active" : ""}" href="${href}"${active ? ' aria-current="page"' : ""}>${label}</a>`;
   }).join("");
 

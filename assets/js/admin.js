@@ -78,6 +78,7 @@ function renderList() {
         <p>${escapeHtml(post.summary)}</p>
       </div>
       <div class="admin-post-actions">
+        <a href="update.html?id=${encodeURIComponent(post.id)}" target="_blank" rel="noopener">View article</a>
         <button type="button" data-edit="${escapeHtml(post.id)}">Edit</button>
         <button class="danger-link" type="button" data-delete="${escapeHtml(post.id)}">Delete</button>
       </div>

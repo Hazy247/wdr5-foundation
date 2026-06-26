@@ -30,6 +30,14 @@ The token is kept in session storage only and is not committed to the site. Publ
 
 The homepage "Families Registered" and "Countries" numbers are controlled from the **Homepage numbers** section in the admin page.
 
+Update posts use one shared data file:
+
+- the **Tile summary** appears on the updates page and homepage latest-updates panel
+- the **Full article body** appears on `update.html?id=post-id`
+- blank lines in the article body become paragraphs
+- lines beginning with `##` become headings
+- lines beginning with `-` become bullet points
+
 For greater security and multiple editors, replace this browser-token workflow with a server-backed CMS or GitHub App before inviting a larger team.
 
 ## Contact and registration forms

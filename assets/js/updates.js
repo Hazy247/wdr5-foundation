@@ -54,6 +54,39 @@ function getHashId() {
   }
 }
 
+function getArticleId() {
+  const params = new URLSearchParams(location.search);
+  return params.get("id") || getHashId();
+}
+
+function articleUrl(post) {
+  return `update.html?id=${encodeURIComponent(post.id)}`;
+}
+
+function formatArticleContent(value) {
+  const text = String(value || "").trim();
+  if (!text) return "<p>More details will be added soon.</p>";
+
+  return text.split(/\n{2,}/).map((block) => {
+    const lines = block.split(/\n/).map((line) => line.trim()).filter(Boolean);
+    if (!lines.length) return "";
+
+    if (lines.length === 1 && lines[0].startsWith("### ")) {
+      return `<h3>${escapeHtml(lines[0].slice(4))}</h3>`;
+    }
+
+    if (lines.length === 1 && lines[0].startsWith("## ")) {
+      return `<h2>${escapeHtml(lines[0].slice(3))}</h2>`;
+    }
+
+    if (lines.every((line) => /^[-*]\s+/.test(line))) {
+      return `<ul>${lines.map((line) => `<li>${escapeHtml(line.replace(/^[-*]\s+/, ""))}</li>`).join("")}</ul>`;
+    }
+
+    return `<p>${lines.map(escapeHtml).join("<br>")}</p>`;
+  }).join("");
+}
+
 async function getUpdates() {
   try {
     const response = await fetch(`data/updates.json?v=${Date.now()}`, { cache: "no-store" });
@@ -113,15 +146,15 @@ function renderUpdatesPage(posts) {
     });
 
     mount.innerHTML = visible.length ? visible.map((post) => `
-      <article class="update-card" id="${escapeHtml(post.id)}">
+      <a class="update-card update-card-link-card" id="${escapeHtml(post.id)}" href="${articleUrl(post)}" aria-label="Read full article: ${escapeHtml(post.title)}">
         <img src="${escapeHtml(post.image || "assets/images/update-research.jpg")}" alt="">
         <div class="update-body">
           <div class="update-meta"><span>${escapeHtml(post.category || "Update")}</span><time datetime="${escapeHtml(post.date)}">${displayDate(post.date)}</time></div>
           <h2>${escapeHtml(post.title)}</h2>
           <p class="update-summary">${escapeHtml(post.summary)}</p>
-          <p>${escapeHtml(post.content || "")}</p>
+          <span class="text-link">Read full article -></span>
         </div>
-      </article>`).join("") : '<div class="empty-state"><h2>No updates found</h2><p>Try a different search or category.</p></div>';
+      </a>`).join("") : '<div class="empty-state"><h2>No updates found</h2><p>Try a different search or category.</p></div>';
 
     if (shouldScrollToHash) {
       shouldScrollToHash = false;
@@ -146,9 +179,74 @@ function renderUpdatesPage(posts) {
   draw();
 }
 
+function renderArticlePage(posts) {
+  const mount = document.querySelector("[data-update-article]");
+  if (!mount) return;
+
+  const articleId = getArticleId();
+  const post = posts.find((item) => item.id === articleId);
+  const heading = document.querySelector("[data-article-heading]");
+  const intro = document.querySelector("[data-article-intro]");
+
+  if (!post) {
+    if (heading) heading.textContent = "Update not found";
+    if (intro) intro.textContent = "The article may have moved or been removed.";
+    document.title = "Update not found | WDR5 Foundation";
+    mount.innerHTML = `
+      <div class="empty-state">
+        <h2>We could not find that update.</h2>
+        <p>Please return to the updates page and choose another article.</p>
+        <a class="button button-purple" href="updates.html">Back to updates</a>
+      </div>`;
+    return;
+  }
+
+  if (heading) heading.textContent = post.title;
+  if (intro) intro.textContent = post.summary;
+  document.title = `${post.title} | WDR5 Foundation`;
+
+  mount.innerHTML = `
+    <article class="article-detail">
+      <a class="text-link" href="updates.html#${encodeURIComponent(post.id)}">← Back to updates</a>
+      <div class="article-meta"><span>${escapeHtml(post.category || "Update")}</span><time datetime="${escapeHtml(post.date)}">${displayDate(post.date)}</time></div>
+      <h1>${escapeHtml(post.title)}</h1>
+      <p class="article-summary">${escapeHtml(post.summary)}</p>
+      <img class="article-image" src="${escapeHtml(post.image || "assets/images/update-research.jpg")}" alt="">
+      <div class="article-content">${formatArticleContent(post.content)}</div>
+      <div class="article-actions">
+        <a class="button button-purple" href="updates.html#${encodeURIComponent(post.id)}">Back to all updates</a>
+        <a class="button button-outline-dark" href="register.html#newsletter">Join the newsletter</a>
+      </div>
+    </article>`;
+
+  renderRelatedUpdates(posts, post.id);
+}
+
+function renderRelatedUpdates(posts, currentId) {
+  const mount = document.querySelector("[data-related-updates]");
+  if (!mount) return;
+  const related = posts.filter((post) => post.id !== currentId).slice(0, 3);
+  mount.innerHTML = related.length ? related.map((post) => `
+    <a class="related-update" href="${articleUrl(post)}">
+      <img src="${escapeHtml(post.image || "assets/images/update-research.jpg")}" alt="">
+      <span>
+        <span class="eyebrow">${escapeHtml(post.category || "Update")}</span>
+        <strong>${escapeHtml(post.title)}</strong>
+        <small>${displayDate(post.date)}</small>
+      </span>
+    </a>`).join("") : '<p class="empty-state">More updates will appear here soon.</p>';
+}
+
 getUpdates().then((posts) => {
   renderHomeUpdates(posts);
   renderUpdatesPage(posts);
+  renderArticlePage(posts);
 });
 
-window.WDR5Updates = { getUpdates, displayDate, fallback: FALLBACK_UPDATES };
+window.WDR5Updates = {
+  getUpdates,
+  displayDate,
+  articleUrl,
+  formatArticleContent,
+  fallback: FALLBACK_UPDATES
+};
