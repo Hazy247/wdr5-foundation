@@ -44,6 +44,13 @@ Update posts use one shared data file:
 
 The admin image uploader requires the GitHub repository and private update key. Uploading an image commits the image file immediately into the configured image upload folder; after it is inserted into a post, select **Save update draft** and then **Publish live changes to GitHub** so the public article points to that image.
 
+Use the **Image library** panel in `admin.html` to avoid typing image paths manually. Select **Refresh image list** after connecting to GitHub. Each image shows its exact repo path and buttons to:
+
+- copy the path
+- insert the image into the article body
+- use it as the full article header image
+- use it as the tile image
+
 If you see a GitHub error saying `"sha" wasn't supplied`, update `assets/js/admin.js` from this project. The admin now automatically fetches the required GitHub file ID before publishing existing JSON files.
 
 For greater security and multiple editors, replace this browser-token workflow with a server-backed CMS or GitHub App before inviting a larger team.

@@ -20,90 +20,74 @@
         <div>
           <span class="eyebrow">Private editing area</span>
           <h1>Website admin</h1>
-          <p>Add update posts and change the homepage family/country numbers. Changes only go live after you publish with your private GitHub update key.</p>
+          <p>Add update posts, upload article images, and change homepage family/country numbers. Changes only go live after you publish with your private GitHub update key.</p>
         </div>
         <a class="button button-outline-dark" href="updates.html">View public updates</a>
       </div>
 
       <div class="admin-status" data-admin-status aria-live="polite">Loading the current website content...</div>
 
-      <section class="admin-panel admin-guide">
-        <h2>How saving works</h2>
-        <p>This site is hosted on GitHub Pages, so there is no built-in username/password login. The private GitHub update key is what gives permission to publish.</p>
-        <ol>
-          <li>Enter your GitHub repository and private update key below.</li>
-          <li>Select <strong>Connect and load from GitHub</strong>.</li>
-          <li>Edit homepage numbers or update posts.</li>
-          <li>Select <strong>Save draft</strong> on the section you changed.</li>
-          <li>Select <strong>Publish live changes to GitHub</strong>. That is the step that updates the public website.</li>
-        </ol>
-        <div class="admin-security-note"><strong>Important:</strong> visitors can open this page if they know the address, but they cannot publish changes unless they have your private GitHub update key. Do not share that key publicly.</div>
-      </section>
+      <div class="admin-top-grid">
+        <section class="admin-panel admin-guide">
+          <h2>How saving works</h2>
+          <p>This site is hosted on GitHub Pages, so the private GitHub update key is what gives permission to publish.</p>
+          <ol>
+            <li>Enter your GitHub repository and private update key.</li>
+            <li>Select <strong>Connect and load from GitHub</strong>.</li>
+            <li>Edit homepage numbers, update posts, or upload images.</li>
+            <li>Select <strong>Save draft</strong> on the section you changed.</li>
+            <li>Select <strong>Publish live changes to GitHub</strong> to update the public website.</li>
+          </ol>
+          <div class="admin-security-note"><strong>Important:</strong> visitors can open this page if they know the address, but they cannot publish changes unless they have your private GitHub update key. Do not share that key publicly.</div>
+        </section>
 
-      <section class="admin-panel" data-admin-connection>
-        <h2>GitHub publishing setup</h2>
-        <p>You only need these boxes when you want to publish live changes. The two file path boxes can normally be left exactly as they are.</p>
-        <div class="connection-grid">
-          <div class="field">
-            <label for="github-repo">GitHub repository</label>
-            <input id="github-repo" placeholder="owner/repository">
-            <span class="field-help">Example: yourname/wdr5-foundation</span>
-          </div>
-          <div class="field">
-            <label for="github-branch">Branch</label>
-            <input id="github-branch" value="main">
-            <span class="field-help">Usually this is main.</span>
-          </div>
-          <div class="field">
-            <label for="github-path">Updates file</label>
-            <input id="github-path" value="data/updates.json">
-            <span class="field-help">Leave this as-is unless you move the file.</span>
-          </div>
-          <div class="field">
-            <label for="github-settings-path">Homepage numbers file</label>
-            <input id="github-settings-path" value="data/site-settings.json">
-            <span class="field-help">Leave this as-is unless you move the file.</span>
-          </div>
-          <div class="field">
-            <label for="github-upload-folder">Image upload folder</label>
-            <input id="github-upload-folder" value="assets/images/uploads">
-            <span class="field-help">New admin uploads are saved here in your GitHub repo.</span>
-          </div>
-          <div class="field">
-            <label for="github-token">Private GitHub update key</label>
-            <input id="github-token" type="password" autocomplete="off" placeholder="github_pat_...">
-            <span class="field-help">Use a fine-grained personal access token with Contents: Read and write for this repository only.</span>
-          </div>
-        </div>
-        <div class="admin-actions">
-          <button class="button button-purple" type="button" data-connect-github>Connect and load from GitHub</button>
-          <button class="button button-outline-dark" type="button" data-load-public>Load public copy only</button>
-          <button class="button button-teal" type="button" data-publish-github>Publish live changes to GitHub</button>
-          <button class="button button-outline-dark" type="button" data-export-json>Download updates JSON</button>
-          <button class="button button-outline-dark" type="button" data-export-settings-json>Download numbers JSON</button>
-        </div>
-      </section>
-
-      <section class="admin-panel">
-        <h2>Homepage numbers</h2>
-        <p>These control the impact numbers shown over the homepage map.</p>
-        <form data-settings-editor>
-          <div class="field-grid">
-            <div class="field"><label for="stat-families-value">Families registered number</label><input id="stat-families-value" name="familiesValue" placeholder="250+" required></div>
-            <div class="field"><label for="stat-families-label">Families label</label><input id="stat-families-label" name="familiesLabel" placeholder="Families Registered" required></div>
-            <div class="field"><label for="stat-countries-value">Countries number</label><input id="stat-countries-value" name="countriesValue" placeholder="35+" required></div>
-            <div class="field"><label for="stat-countries-label">Countries label</label><input id="stat-countries-label" name="countriesLabel" placeholder="Countries" required></div>
+        <section class="admin-panel" data-admin-connection>
+          <h2>GitHub publishing setup</h2>
+          <p>The file path boxes can normally be left exactly as they are.</p>
+          <div class="connection-grid">
+            <div class="field">
+              <label for="github-repo">GitHub repository</label>
+              <input id="github-repo" placeholder="owner/repository">
+              <span class="field-help">Example: yourname/wdr5-foundation</span>
+            </div>
+            <div class="field">
+              <label for="github-branch">Branch</label>
+              <input id="github-branch" value="main">
+              <span class="field-help">Usually this is main.</span>
+            </div>
+            <div class="field">
+              <label for="github-path">Updates file</label>
+              <input id="github-path" value="data/updates.json">
+            </div>
+            <div class="field">
+              <label for="github-settings-path">Homepage numbers file</label>
+              <input id="github-settings-path" value="data/site-settings.json">
+            </div>
+            <div class="field">
+              <label for="github-upload-folder">Image upload folder</label>
+              <input id="github-upload-folder" value="assets/images/uploads">
+              <span class="field-help">New admin uploads are saved here.</span>
+            </div>
+            <div class="field">
+              <label for="github-token">Private GitHub update key</label>
+              <input id="github-token" type="password" autocomplete="off" placeholder="github_pat_...">
+              <span class="field-help">Fine-grained token with Contents: Read and write.</span>
+            </div>
           </div>
           <div class="admin-actions">
-            <button class="button button-purple" type="submit">Save homepage numbers draft</button>
+            <button class="button button-purple" type="button" data-connect-github>Connect and load from GitHub</button>
+            <button class="button button-outline-dark" type="button" data-load-public>Load public copy only</button>
+            <button class="button button-teal" type="button" data-publish-github>Publish live changes to GitHub</button>
+            <button class="button button-outline-dark" type="button" data-export-json>Download updates JSON</button>
+            <button class="button button-outline-dark" type="button" data-export-settings-json>Download numbers JSON</button>
           </div>
-        </form>
-      </section>
+        </section>
+      </div>
 
-      <div class="admin-workspace">
-        <section class="admin-panel">
+      <div class="admin-dashboard-grid">
+        <section class="admin-panel admin-editor-panel">
           <h2 data-editor-title>Add an update</h2>
-          <p>Use the short fields for the update tile, then write the longer article body underneath. Save it into the draft list, review it, then publish to GitHub when ready.</p>
+          <p>Use the short fields for the update tile, then write the longer article body underneath. Save the draft, review it, then publish to GitHub when ready.</p>
           <form data-admin-editor>
             <div class="field">
               <label for="post-title">Article title</label>
@@ -119,20 +103,10 @@
               <textarea id="post-summary" name="summary" style="min-height:90px" required></textarea>
               <span class="field-help">A short teaser for the updates page tile and homepage latest-updates panel.</span>
             </div>
-            <div class="field">
-              <label for="post-image">Tile image URL or site path</label>
-              <input id="post-image" name="image" placeholder="assets/images/example.jpg">
-              <span class="field-help">This smaller image appears on the homepage and updates-page tile.</span>
-            </div>
-            <div class="field">
-              <label for="post-heroImage">Full article header image URL or site path</label>
-              <input id="post-heroImage" name="heroImage" placeholder="assets/images/uploads/article-header.jpg">
-              <span class="field-help">Optional. Use a larger, sharper image here. If blank, the article will not stretch the tile image.</span>
-            </div>
 
             <div class="admin-upload-card">
               <h3>Upload image to the repo</h3>
-              <p>Use this to add images to your GitHub images folder, then place them in the full article body, header image, or tile image.</p>
+              <p>Upload an image, then choose whether to insert it into the article body or use it as the header/tile image. Uploaded images also appear in the Image library.</p>
               <div class="field-grid">
                 <div class="field">
                   <label for="article-image-file">Image file</label>
@@ -158,12 +132,26 @@
               <div class="admin-actions">
                 <button class="button button-teal" type="button" data-upload-article-image>Upload selected image</button>
               </div>
-              <span class="field-help">Requires your GitHub repository and private update key above. Images are saved to the image upload folder set near the top of this page.</span>
+              <span class="field-help">Images are saved to the image upload folder set near the top of this page.</span>
             </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="post-image">Tile image path</label>
+                <input id="post-image" name="image" placeholder="assets/images/example.jpg">
+                <span class="field-help">Use the Image library to fill this without typing.</span>
+              </div>
+              <div class="field">
+                <label for="post-heroImage">Full article header image path</label>
+                <input id="post-heroImage" name="heroImage" placeholder="assets/images/uploads/article-header.jpg">
+                <span class="field-help">Optional. Use a larger, sharper image here.</span>
+              </div>
+            </div>
+
             <div class="field">
               <label for="post-content">Full article body</label>
               <textarea id="post-content" name="content" class="article-editor" required></textarea>
-              <span class="field-help">Use blank lines for new paragraphs. You can also use ## Headings, - bullet points, and uploaded images.</span>
+              <span class="field-help">Use blank lines for new paragraphs. You can also use ## Headings, - bullet points, and inserted images.</span>
             </div>
             <label class="check-field"><input id="post-featured" name="featured" type="checkbox" checked><span>Show this post in the homepage latest-updates panel.</span></label>
             <div class="admin-actions">
@@ -173,11 +161,41 @@
           </form>
         </section>
 
-        <section class="admin-panel">
-          <h2>Current update drafts</h2>
-          <p>Changes here stay in this admin screen until you select "Publish live changes to GitHub."</p>
-          <div class="admin-posts" data-admin-list></div>
-        </section>
+        <aside class="admin-sidebar">
+          <section class="admin-panel">
+            <h2>Image library</h2>
+            <p>Load the images folder from GitHub, then copy paths or insert images without typing.</p>
+            <div class="admin-actions">
+              <button class="button button-outline-dark" type="button" data-load-images>Refresh image list</button>
+            </div>
+            <div class="image-library" data-image-library>
+              <p class="empty-state">Connect to GitHub, then refresh the image list.</p>
+            </div>
+            <div class="image-path-log" data-image-log aria-live="polite">
+              <span>Image path log will appear here after loading or uploading images.</span>
+            </div>
+          </section>
+
+          <section class="admin-panel">
+            <h2>Homepage numbers</h2>
+            <p>These control the impact numbers shown over the homepage map.</p>
+            <form data-settings-editor>
+              <div class="field"><label for="stat-families-value">Families registered number</label><input id="stat-families-value" name="familiesValue" placeholder="250+" required></div>
+              <div class="field"><label for="stat-families-label">Families label</label><input id="stat-families-label" name="familiesLabel" placeholder="Families Registered" required></div>
+              <div class="field"><label for="stat-countries-value">Countries number</label><input id="stat-countries-value" name="countriesValue" placeholder="35+" required></div>
+              <div class="field"><label for="stat-countries-label">Countries label</label><input id="stat-countries-label" name="countriesLabel" placeholder="Countries" required></div>
+              <div class="admin-actions">
+                <button class="button button-purple" type="submit">Save homepage numbers draft</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="admin-panel">
+            <h2>Current update drafts</h2>
+            <p>Changes here stay in this admin screen until you publish live changes to GitHub.</p>
+            <div class="admin-posts" data-admin-list></div>
+          </section>
+        </aside>
       </div>
     </div>
   </main>

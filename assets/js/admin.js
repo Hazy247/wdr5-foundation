@@ -9,6 +9,7 @@ const adminState = {
     },
   },
   settingsSha: "",
+  images: [],
   editingId: null,
 };
 
@@ -17,6 +18,8 @@ const els = {
   editor: document.querySelector("[data-admin-editor]"),
   settingsEditor: document.querySelector("[data-settings-editor]"),
   list: document.querySelector("[data-admin-list]"),
+  imageLibrary: document.querySelector("[data-image-library]"),
+  imageLog: document.querySelector("[data-image-log]"),
   status: document.querySelector("[data-admin-status]"),
 };
 
@@ -78,6 +81,20 @@ function slugify(value) {
   return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+function isImagePath(path = "") {
+  return /\.(png|jpe?g|webp|gif)$/i.test(path);
+}
+
+function imageAltFromPath(path = "") {
+  return path
+    .split("/")
+    .pop()
+    .replace(/\.[^.]+$/, "")
+    .replace(/^\w{6,}-\w{5}-/, "")
+    .replace(/[-_]+/g, " ")
+    .trim() || "Article image";
+}
+
 function buildUploadPath(file, altText, uploadFolder = "assets/images/uploads") {
   const extensions = {
     "image/jpeg": "jpg",
@@ -100,6 +117,23 @@ function imageMarkdown(path, altText, caption) {
   const alt = (altText || "Article image").replace(/[\[\]\n\r]/g, " ").trim();
   const cleanCaption = (caption || "").replace(/["\n\r]/g, " ").trim();
   return cleanCaption ? `![${alt}](${path} "${cleanCaption}")` : `![${alt}](${path})`;
+}
+
+async function copyText(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
 }
 
 function insertIntoTextarea(textarea, value) {
@@ -132,6 +166,71 @@ function renderList() {
 
   els.list.querySelectorAll("[data-edit]").forEach((button) => button.addEventListener("click", () => editPost(button.dataset.edit)));
   els.list.querySelectorAll("[data-delete]").forEach((button) => button.addEventListener("click", () => deletePost(button.dataset.delete)));
+}
+
+function renderImageLibrary() {
+  if (!els.imageLibrary) return;
+
+  if (!adminState.images.length) {
+    els.imageLibrary.innerHTML = '<p class="empty-state">No images loaded yet. Connect to GitHub, then select Refresh image list.</p>';
+    if (els.imageLog) els.imageLog.innerHTML = "<span>No image paths loaded yet.</span>";
+    return;
+  }
+
+  els.imageLibrary.innerHTML = adminState.images.map((image) => `
+    <article class="image-library-item">
+      <img src="${escapeHtml(image.path)}" alt="">
+      <div>
+        <strong>${escapeHtml(image.name)}</strong>
+        <code>${escapeHtml(image.path)}</code>
+        <div class="image-library-actions">
+          <button type="button" data-copy-image="${escapeHtml(image.path)}">Copy path</button>
+          <button type="button" data-insert-image="${escapeHtml(image.path)}">Insert in article</button>
+          <button type="button" data-hero-image="${escapeHtml(image.path)}">Use as header</button>
+          <button type="button" data-tile-image="${escapeHtml(image.path)}">Use as tile</button>
+        </div>
+      </div>
+    </article>`).join("");
+
+  if (els.imageLog) {
+    els.imageLog.innerHTML = `
+      <strong>Image path log</strong>
+      <ul>${adminState.images.map((image) => `<li><code>${escapeHtml(image.path)}</code></li>`).join("")}</ul>`;
+  }
+
+  els.imageLibrary.querySelectorAll("[data-copy-image]").forEach((button) => button.addEventListener("click", () => useImagePath("copy", button.dataset.copyImage)));
+  els.imageLibrary.querySelectorAll("[data-insert-image]").forEach((button) => button.addEventListener("click", () => useImagePath("insert", button.dataset.insertImage)));
+  els.imageLibrary.querySelectorAll("[data-hero-image]").forEach((button) => button.addEventListener("click", () => useImagePath("hero", button.dataset.heroImage)));
+  els.imageLibrary.querySelectorAll("[data-tile-image]").forEach((button) => button.addEventListener("click", () => useImagePath("tile", button.dataset.tileImage)));
+}
+
+async function useImagePath(action, path) {
+  if (!path) return;
+
+  try {
+    if (action === "copy") {
+      await copyText(path);
+      setStatus(`Copied image path: ${path}`, "success");
+      return;
+    }
+
+    if (action === "hero") {
+      document.querySelector("#post-heroImage").value = path;
+      setStatus("Image path added as the full article header image. Save the update draft when ready.", "success");
+      return;
+    }
+
+    if (action === "tile") {
+      document.querySelector("#post-image").value = path;
+      setStatus("Image path added as the tile image. Save the update draft when ready.", "success");
+      return;
+    }
+
+    insertIntoTextarea(document.querySelector("#post-content"), imageMarkdown(path, imageAltFromPath(path), ""));
+    setStatus("Image path inserted into the full article body. Save the update draft when ready.", "success");
+  } catch (error) {
+    setStatus(error.message || "Could not use that image path.", "error");
+  }
 }
 
 function renderSettingsForm() {
@@ -232,6 +331,24 @@ async function readGitHubFile(settings, path) {
   };
 }
 
+async function readGitHubDirectory(settings, path) {
+  const response = await fetch(`https://api.github.com/repos/${settings.repo}/contents/${path}?ref=${encodeURIComponent(settings.branch)}`, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${settings.token}`,
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+
+  if (response.status === 404) return [];
+  if (!response.ok) {
+    throw new Error(`GitHub returned ${response.status} while loading ${path}.`);
+  }
+
+  const contents = await response.json();
+  return Array.isArray(contents) ? contents : [];
+}
+
 async function getGitHubFileSha(settings, path) {
   const response = await fetch(`https://api.github.com/repos/${settings.repo}/contents/${path}?ref=${encodeURIComponent(settings.branch)}`, {
     headers: {
@@ -304,6 +421,38 @@ async function writeGitHubBase64File(settings, path, base64Content, message) {
   return result.content.path;
 }
 
+async function loadImageLibrary({ silent = false } = {}) {
+  const settings = getSettings();
+  if (!settings.repo || !settings.token) {
+    if (!silent) setStatus("Enter your GitHub repository and private update key before loading the image list.", "error");
+    return;
+  }
+
+  if (!silent) setStatus("Loading image paths from GitHub...");
+
+  try {
+    const folders = ["assets/images", settings.uploadFolder].filter(Boolean);
+    const uniqueFolders = [...new Set(folders)];
+    const folderContents = await Promise.all(uniqueFolders.map((folder) => readGitHubDirectory(settings, folder)));
+    const imagesByPath = new Map();
+
+    folderContents.flat().forEach((item) => {
+      if (item.type !== "file" || !isImagePath(item.path)) return;
+      imagesByPath.set(item.path, {
+        name: item.name,
+        path: item.path,
+        size: item.size || 0,
+      });
+    });
+
+    adminState.images = [...imagesByPath.values()].sort((a, b) => a.path.localeCompare(b.path));
+    renderImageLibrary();
+    if (!silent) setStatus(`Loaded ${adminState.images.length} image path${adminState.images.length === 1 ? "" : "s"} from GitHub.`, "success");
+  } catch (error) {
+    if (!silent) setStatus(error.message, "error");
+  }
+}
+
 async function connectGitHub() {
   const settings = getSettings();
   if (!settings.repo || !settings.token) {
@@ -332,6 +481,7 @@ async function connectGitHub() {
     renderList();
     renderSettingsForm();
     clearEditor();
+    await loadImageLibrary({ silent: true });
     setStatus("Connected securely for this browser tab. You can now edit drafts and publish live changes to GitHub.", "success");
   } catch (error) {
     setStatus(error.message, "error");
@@ -412,6 +562,11 @@ async function uploadArticleImage() {
     setStatus("Uploading image to GitHub...");
     const base64Content = encodeArrayBufferBase64(await file.arrayBuffer());
     const uploadedPath = await writeGitHubBase64File(settings, path, base64Content, `Upload website image (${new Date().toISOString().slice(0, 10)})`);
+    adminState.images = [
+      { name: uploadedPath.split("/").pop(), path: uploadedPath, size: file.size },
+      ...adminState.images.filter((image) => image.path !== uploadedPath),
+    ].sort((a, b) => a.path.localeCompare(b.path));
+    renderImageLibrary();
 
     if (placement === "hero") {
       document.querySelector("#post-heroImage").value = uploadedPath;
@@ -466,6 +621,7 @@ document.querySelector("[data-publish-github]")?.addEventListener("click", publi
 document.querySelector("[data-export-json]")?.addEventListener("click", exportJson);
 document.querySelector("[data-export-settings-json]")?.addEventListener("click", exportSettingsJson);
 document.querySelector("[data-upload-article-image]")?.addEventListener("click", uploadArticleImage);
+document.querySelector("[data-load-images]")?.addEventListener("click", () => loadImageLibrary());
 document.querySelector("[data-clear-editor]")?.addEventListener("click", clearEditor);
 
 const saved = JSON.parse(localStorage.getItem("wdr5-admin-settings") || "{}");
@@ -475,4 +631,5 @@ document.querySelector("#github-path").value = saved.path || "data/updates.json"
 document.querySelector("#github-settings-path").value = saved.settingsPath || "data/site-settings.json";
 document.querySelector("#github-upload-folder").value = saved.uploadFolder || "assets/images/uploads";
 document.querySelector("#github-token").value = sessionStorage.getItem("wdr5-github-token") || "";
+renderImageLibrary();
 loadPublicData();
