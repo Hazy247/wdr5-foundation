@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>Updates Admin | WDR5 Foundation</title>
+  <title>Website Admin | WDR5 Foundation</title>
   <link rel="icon" href="assets/images/favicon.png">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/site.js" defer></script>
@@ -17,11 +17,11 @@
   <main id="main" class="admin-shell">
     <div class="shell">
       <div class="admin-intro">
-        <div><span class="eyebrow">Content management</span><h1>Updates admin</h1><p>Add, edit and publish posts to <code>data/updates.json</code>. This approach works on GitHub Pages without a separate database.</p></div>
+        <div><span class="eyebrow">Content management</span><h1>Website admin</h1><p>Add update posts and edit homepage numbers. This approach works on GitHub Pages without a separate database.</p></div>
         <a class="button button-outline-dark" href="updates.html">View public updates</a>
       </div>
 
-      <div class="admin-status" data-admin-status aria-live="polite">Loading the current updates…</div>
+      <div class="admin-status" data-admin-status aria-live="polite">Loading the current website content...</div>
 
       <section class="admin-panel" data-admin-connection>
         <h2>Connect to GitHub</h2>
@@ -30,14 +30,32 @@
           <div class="field"><label for="github-repo">Repository</label><input id="github-repo" placeholder="owner/repository"></div>
           <div class="field"><label for="github-branch">Branch</label><input id="github-branch" value="main"></div>
           <div class="field"><label for="github-path">Updates path</label><input id="github-path" value="data/updates.json"></div>
-          <div class="field"><label for="github-token">Fine-grained access token</label><input id="github-token" type="password" autocomplete="off" placeholder="github_pat_…"></div>
+          <div class="field"><label for="github-settings-path">Homepage numbers path</label><input id="github-settings-path" value="data/site-settings.json"></div>
+          <div class="field"><label for="github-token">Fine-grained access token</label><input id="github-token" type="password" autocomplete="off" placeholder="github_pat_..."></div>
         </div>
         <div class="admin-actions">
           <button class="button button-purple" type="button" data-connect-github>Connect and load</button>
           <button class="button button-outline-dark" type="button" data-load-public>Load public copy</button>
           <button class="button button-teal" type="button" data-publish-github>Publish to GitHub</button>
-          <button class="button button-outline-dark" type="button" data-export-json>Download JSON</button>
+          <button class="button button-outline-dark" type="button" data-export-json>Download updates JSON</button>
+          <button class="button button-outline-dark" type="button" data-export-settings-json>Download numbers JSON</button>
         </div>
+      </section>
+
+      <section class="admin-panel">
+        <h2>Homepage numbers</h2>
+        <p>These control the impact numbers shown over the homepage map.</p>
+        <form data-settings-editor>
+          <div class="field-grid">
+            <div class="field"><label for="stat-families-value">Families registered number</label><input id="stat-families-value" name="familiesValue" placeholder="250+" required></div>
+            <div class="field"><label for="stat-families-label">Families label</label><input id="stat-families-label" name="familiesLabel" placeholder="Families Registered" required></div>
+            <div class="field"><label for="stat-countries-value">Countries number</label><input id="stat-countries-value" name="countriesValue" placeholder="35+" required></div>
+            <div class="field"><label for="stat-countries-label">Countries label</label><input id="stat-countries-label" name="countriesLabel" placeholder="Countries" required></div>
+          </div>
+          <div class="admin-actions">
+            <button class="button button-purple" type="submit">Save homepage numbers</button>
+          </div>
+        </form>
       </section>
 
       <div class="admin-workspace">
@@ -63,7 +81,7 @@
 
         <section class="admin-panel">
           <h2>Current posts</h2>
-          <p>Changes here remain local until you select “Publish to GitHub.”</p>
+          <p>Changes here remain local until you select "Publish to GitHub."</p>
           <div class="admin-posts" data-admin-list></div>
         </section>
       </div>

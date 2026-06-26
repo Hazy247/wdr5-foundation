@@ -10,16 +10,19 @@ A responsive, dependency-free static website designed for GitHub Pages.
 4. Under **Build and deployment**, choose **GitHub Actions**.
 5. Push to the `main` branch. The included workflow deploys the site.
 
-## Updates admin
+## Website admin
 
 Open `admin.html` on the published site. Enter:
 
 - the repository as `owner/repository`
 - the branch, normally `main`
 - the content path, normally `data/updates.json`
+- the homepage numbers path, normally `data/site-settings.json`
 - a fine-grained GitHub personal access token with **Contents: Read and write** access to this repository
 
-The token is kept in session storage only and is not committed to the site. Publishing edits `data/updates.json` through the GitHub API, which triggers a new Pages deployment.
+The token is kept in session storage only and is not committed to the site. Publishing edits `data/updates.json` and `data/site-settings.json` through the GitHub API, which triggers a new Pages deployment.
+
+The homepage "Families Registered" and "Countries" numbers are controlled from the **Homepage numbers** section in the admin page.
 
 For greater security and multiple editors, replace this browser-token workflow with a server-backed CMS or GitHub App before inviting a larger team.
 

@@ -14,6 +14,16 @@ const WDR5 = {
   ],
 };
 
+const defaultSiteSettings = {
+  heroStats: {
+    families: { icon: "users", value: "250+", label: "Families Registered" },
+    countries: { icon: "globe", value: "35+", label: "Countries" },
+    message: { icon: "heart", value: "Stronger", label: "Together" },
+  },
+};
+
+const heroStatOrder = ["families", "countries", "message"];
+
 const pageName = location.pathname.split("/").pop() || "index.html";
 const root = document.documentElement;
 root.classList.add("js");
@@ -30,6 +40,57 @@ function icon(name, size = 20) {
     shield: '<path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V5l8-3 8 3v8Z"/><path d="m9 12 2 2 4-4"/>',
   };
   return `<svg aria-hidden="true" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${paths[name] || paths.arrow}</svg>`;
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function normalizeSiteSettings(settings = {}) {
+  const source = settings && typeof settings === "object" ? settings : {};
+  const incomingStats = Array.isArray(source.heroStats)
+    ? Object.fromEntries(heroStatOrder.map((key, index) => [key, source.heroStats[index] || {}]))
+    : source.heroStats || {};
+
+  const heroStats = {};
+  heroStatOrder.forEach((key) => {
+    heroStats[key] = {
+      ...defaultSiteSettings.heroStats[key],
+      ...(incomingStats[key] || {}),
+    };
+  });
+
+  return { heroStats };
+}
+
+async function loadSiteSettings() {
+  try {
+    const response = await fetch("data/site-settings.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("Site settings file not available.");
+    return normalizeSiteSettings(await response.json());
+  } catch (error) {
+    return normalizeSiteSettings();
+  }
+}
+
+function renderHeroStats(settings = defaultSiteSettings) {
+  const mount = document.querySelector("[data-hero-stats]");
+  if (!mount) return;
+  const normalized = normalizeSiteSettings(settings);
+
+  mount.innerHTML = heroStatOrder.map((key) => {
+    const stat = normalized.heroStats[key];
+    return `
+      <div class="stat">
+        ${icon(stat.icon, stat.icon === "globe" ? 34 : 38)}
+        <span><strong>${escapeHtml(stat.value)}</strong><small>${escapeHtml(stat.label)}</small></span>
+      </div>`;
+  }).join("");
 }
 
 function renderHeader() {
@@ -195,5 +256,14 @@ document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new 
 initForms();
 initFaqs();
 initReveal();
+if (document.querySelector("[data-hero-stats]")) {
+  loadSiteSettings().then(renderHeroStats);
+}
 
-window.WDR5 = { icon };
+window.WDR5 = {
+  icon,
+  defaultSiteSettings,
+  normalizeSiteSettings,
+  loadSiteSettings,
+  renderHeroStats,
+};

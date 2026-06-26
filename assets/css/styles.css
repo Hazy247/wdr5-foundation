@@ -1379,7 +1379,7 @@ h4 {
 
 .connection-grid {
   display: grid;
-  grid-template-columns: 1.2fr .55fr 1fr 1.3fr;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 13px;
 }
 

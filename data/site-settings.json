@@ -1,0 +1,19 @@
+{
+  "heroStats": {
+    "families": {
+      "icon": "users",
+      "value": "250+",
+      "label": "Families Registered"
+    },
+    "countries": {
+      "icon": "globe",
+      "value": "35+",
+      "label": "Countries"
+    },
+    "message": {
+      "icon": "heart",
+      "value": "Stronger",
+      "label": "Together"
+    }
+  }
+}
