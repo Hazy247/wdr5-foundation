@@ -1114,11 +1114,17 @@ h4 {
 }
 
 .update-card {
+  scroll-margin-top: 24px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
   box-shadow: var(--small-shadow);
+}
+
+.update-card.is-targeted {
+  border-color: rgba(122, 67, 223, .55);
+  box-shadow: 0 16px 42px rgba(122, 67, 223, .18);
 }
 
 .update-card > img {

@@ -2,13 +2,13 @@
   "heroStats": {
     "families": {
       "icon": "users",
-      "value": "1",
-      "label": "Family Registered"
+      "value": "250+",
+      "label": "Families Registered"
     },
     "countries": {
       "icon": "globe",
-      "value": "1",
-      "label": "Country"
+      "value": "35+",
+      "label": "Countries"
     },
     "message": {
       "icon": "heart",

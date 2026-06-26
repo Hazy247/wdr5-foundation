@@ -36,6 +36,24 @@ function displayDate(value) {
   return new Intl.DateTimeFormat("en", { month: "long", day: "numeric", year: "numeric" }).format(date);
 }
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function getHashId() {
+  if (!location.hash) return "";
+  try {
+    return decodeURIComponent(location.hash.slice(1));
+  } catch {
+    return location.hash.slice(1);
+  }
+}
+
 async function getUpdates() {
   try {
     const response = await fetch(`data/updates.json?v=${Date.now()}`, { cache: "no-store" });
@@ -54,12 +72,12 @@ function renderHomeUpdates(posts) {
   const featured = posts.filter((post) => post.featured).slice(0, 3);
   mount.innerHTML = featured.map((post) => `
     <article class="mini-update">
-      <img src="${post.image || "assets/images/update-research.jpg"}" alt="">
+      <img src="${escapeHtml(post.image || "assets/images/update-research.jpg")}" alt="">
       <div>
-        <span class="eyebrow">${post.category || "Update"}</span>
-        <h3><a href="updates.html#${post.id}">${post.title}</a></h3>
-        <p>${post.summary}</p>
-        <time datetime="${post.date}">${displayDate(post.date)}</time>
+        <span class="eyebrow">${escapeHtml(post.category || "Update")}</span>
+        <h3><a href="updates.html#${encodeURIComponent(post.id)}">${escapeHtml(post.title)}</a></h3>
+        <p>${escapeHtml(post.summary)}</p>
+        <time datetime="${escapeHtml(post.date)}">${displayDate(post.date)}</time>
       </div>
     </article>`).join("");
 }
@@ -69,6 +87,21 @@ function renderUpdatesPage(posts) {
   if (!mount) return;
   const search = document.querySelector("[data-update-search]");
   const filters = document.querySelectorAll("[data-update-filter]");
+  let shouldScrollToHash = Boolean(getHashId());
+
+  const scrollToLinkedPost = () => {
+    const id = getHashId();
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    document.querySelectorAll(".update-card.is-targeted").forEach((card) => card.classList.remove("is-targeted"));
+    target.classList.add("is-targeted");
+    target.setAttribute("tabindex", "-1");
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.focus({ preventScroll: true });
+    });
+  };
 
   const draw = () => {
     const query = (search?.value || "").trim().toLowerCase();
@@ -80,23 +113,36 @@ function renderUpdatesPage(posts) {
     });
 
     mount.innerHTML = visible.length ? visible.map((post) => `
-      <article class="update-card" id="${post.id}" data-reveal>
-        <img src="${post.image || "assets/images/update-research.jpg"}" alt="">
+      <article class="update-card" id="${escapeHtml(post.id)}">
+        <img src="${escapeHtml(post.image || "assets/images/update-research.jpg")}" alt="">
         <div class="update-body">
-          <div class="update-meta"><span>${post.category || "Update"}</span><time datetime="${post.date}">${displayDate(post.date)}</time></div>
-          <h2>${post.title}</h2>
-          <p class="update-summary">${post.summary}</p>
-          <p>${post.content || ""}</p>
+          <div class="update-meta"><span>${escapeHtml(post.category || "Update")}</span><time datetime="${escapeHtml(post.date)}">${displayDate(post.date)}</time></div>
+          <h2>${escapeHtml(post.title)}</h2>
+          <p class="update-summary">${escapeHtml(post.summary)}</p>
+          <p>${escapeHtml(post.content || "")}</p>
         </div>
       </article>`).join("") : '<div class="empty-state"><h2>No updates found</h2><p>Try a different search or category.</p></div>';
+
+    if (shouldScrollToHash) {
+      shouldScrollToHash = false;
+      scrollToLinkedPost();
+    }
   };
 
-  search?.addEventListener("input", draw);
+  search?.addEventListener("input", () => {
+    shouldScrollToHash = false;
+    draw();
+  });
   filters.forEach((button) => button.addEventListener("click", () => {
     filters.forEach((item) => item.classList.remove("is-active"));
     button.classList.add("is-active");
+    shouldScrollToHash = false;
     draw();
   }));
+  window.addEventListener("hashchange", () => {
+    shouldScrollToHash = true;
+    draw();
+  });
   draw();
 }
 
