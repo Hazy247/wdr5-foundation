@@ -1270,6 +1270,26 @@ a.update-card {
   margin-top: 7px;
 }
 
+.article-content figure {
+  margin: 30px 0;
+}
+
+.article-content figure img {
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 14px 35px rgba(7, 23, 75, .1);
+}
+
+.article-content figcaption {
+  margin-top: 9px;
+  color: #7f879d;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .article-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1573,6 +1593,25 @@ a.update-card {
   border-radius: 8px;
   background: #fff4f6;
   color: #743744;
+  font-size: 13px;
+}
+
+.admin-upload-card {
+  margin: 22px 0;
+  padding: 18px;
+  border: 1px dashed #cfd8ef;
+  border-radius: 13px;
+  background: #f8fbff;
+}
+
+.admin-upload-card h3 {
+  margin-bottom: 5px;
+  color: var(--navy);
+}
+
+.admin-upload-card p {
+  margin-bottom: 14px;
+  color: var(--muted);
   font-size: 13px;
 }
 
