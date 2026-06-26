@@ -12,13 +12,19 @@ A responsive, dependency-free static website designed for GitHub Pages.
 
 ## Website admin
 
-Open `admin.html` on the published site. Enter:
+Open `admin.html` on the published site. The admin page is not linked from the public footer, but it is still a public URL on GitHub Pages. Visitors cannot publish changes unless they have your private GitHub update key.
 
-- the repository as `owner/repository`
-- the branch, normally `main`
-- the content path, normally `data/updates.json`
-- the homepage numbers path, normally `data/site-settings.json`
-- a fine-grained GitHub personal access token with **Contents: Read and write** access to this repository
+To save live updates:
+
+1. Enter the GitHub repository as `owner/repository`.
+2. Enter the branch, normally `main`.
+3. Leave the updates path as `data/updates.json`.
+4. Leave the homepage numbers path as `data/site-settings.json`.
+5. Enter a fine-grained GitHub personal access token with **Contents: Read and write** access to this repository.
+6. Select **Connect and load from GitHub**.
+7. Edit update posts or homepage numbers.
+8. Select the section's **Save draft** button.
+9. Select **Publish live changes to GitHub**.
 
 The token is kept in session storage only and is not committed to the site. Publishing edits `data/updates.json` and `data/site-settings.json` through the GitHub API, which triggers a new Pages deployment.
 

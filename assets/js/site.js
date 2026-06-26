@@ -149,7 +149,6 @@ function renderFooter() {
         <a href="register.html"><span class="action-icon">${icon("users", 29)}</span><span>Family Connection<br>Directory</span></a>
         <a href="resources.html"><span class="action-icon">▱</span><span>Resources<br>Library</span></a>
         <a href="updates.html"><span class="action-icon">▤</span><span>Updates<br>&amp; News</span></a>
-        <a href="admin.html"><span class="action-icon">⚙</span><span>Admin Dashboard<br>(CMS)</span></a>
       </div>
     </section>
     <footer class="footer">

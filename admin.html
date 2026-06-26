@@ -17,26 +17,63 @@
   <main id="main" class="admin-shell">
     <div class="shell">
       <div class="admin-intro">
-        <div><span class="eyebrow">Content management</span><h1>Website admin</h1><p>Add update posts and edit homepage numbers. This approach works on GitHub Pages without a separate database.</p></div>
+        <div>
+          <span class="eyebrow">Private editing area</span>
+          <h1>Website admin</h1>
+          <p>Add update posts and change the homepage family/country numbers. Changes only go live after you publish with your private GitHub update key.</p>
+        </div>
         <a class="button button-outline-dark" href="updates.html">View public updates</a>
       </div>
 
       <div class="admin-status" data-admin-status aria-live="polite">Loading the current website content...</div>
 
+      <section class="admin-panel admin-guide">
+        <h2>How saving works</h2>
+        <p>This site is hosted on GitHub Pages, so there is no built-in username/password login. The private GitHub update key is what gives permission to publish.</p>
+        <ol>
+          <li>Enter your GitHub repository and private update key below.</li>
+          <li>Select <strong>Connect and load from GitHub</strong>.</li>
+          <li>Edit homepage numbers or update posts.</li>
+          <li>Select <strong>Save draft</strong> on the section you changed.</li>
+          <li>Select <strong>Publish live changes to GitHub</strong>. That is the step that updates the public website.</li>
+        </ol>
+        <div class="admin-security-note"><strong>Important:</strong> visitors can open this page if they know the address, but they cannot publish changes unless they have your private GitHub update key. Do not share that key publicly.</div>
+      </section>
+
       <section class="admin-panel" data-admin-connection>
-        <h2>Connect to GitHub</h2>
-        <p>Use a fine-grained personal access token limited to this repository with <strong>Contents: Read and write</strong>. The token is kept in this browser tab only.</p>
+        <h2>GitHub publishing setup</h2>
+        <p>You only need these boxes when you want to publish live changes. The two file path boxes can normally be left exactly as they are.</p>
         <div class="connection-grid">
-          <div class="field"><label for="github-repo">Repository</label><input id="github-repo" placeholder="owner/repository"></div>
-          <div class="field"><label for="github-branch">Branch</label><input id="github-branch" value="main"></div>
-          <div class="field"><label for="github-path">Updates path</label><input id="github-path" value="data/updates.json"></div>
-          <div class="field"><label for="github-settings-path">Homepage numbers path</label><input id="github-settings-path" value="data/site-settings.json"></div>
-          <div class="field"><label for="github-token">Fine-grained access token</label><input id="github-token" type="password" autocomplete="off" placeholder="github_pat_..."></div>
+          <div class="field">
+            <label for="github-repo">GitHub repository</label>
+            <input id="github-repo" placeholder="owner/repository">
+            <span class="field-help">Example: yourname/wdr5-foundation</span>
+          </div>
+          <div class="field">
+            <label for="github-branch">Branch</label>
+            <input id="github-branch" value="main">
+            <span class="field-help">Usually this is main.</span>
+          </div>
+          <div class="field">
+            <label for="github-path">Updates file</label>
+            <input id="github-path" value="data/updates.json">
+            <span class="field-help">Leave this as-is unless you move the file.</span>
+          </div>
+          <div class="field">
+            <label for="github-settings-path">Homepage numbers file</label>
+            <input id="github-settings-path" value="data/site-settings.json">
+            <span class="field-help">Leave this as-is unless you move the file.</span>
+          </div>
+          <div class="field">
+            <label for="github-token">Private GitHub update key</label>
+            <input id="github-token" type="password" autocomplete="off" placeholder="github_pat_...">
+            <span class="field-help">Use a fine-grained personal access token with Contents: Read and write for this repository only.</span>
+          </div>
         </div>
         <div class="admin-actions">
-          <button class="button button-purple" type="button" data-connect-github>Connect and load</button>
-          <button class="button button-outline-dark" type="button" data-load-public>Load public copy</button>
-          <button class="button button-teal" type="button" data-publish-github>Publish to GitHub</button>
+          <button class="button button-purple" type="button" data-connect-github>Connect and load from GitHub</button>
+          <button class="button button-outline-dark" type="button" data-load-public>Load public copy only</button>
+          <button class="button button-teal" type="button" data-publish-github>Publish live changes to GitHub</button>
           <button class="button button-outline-dark" type="button" data-export-json>Download updates JSON</button>
           <button class="button button-outline-dark" type="button" data-export-settings-json>Download numbers JSON</button>
         </div>
@@ -53,7 +90,7 @@
             <div class="field"><label for="stat-countries-label">Countries label</label><input id="stat-countries-label" name="countriesLabel" placeholder="Countries" required></div>
           </div>
           <div class="admin-actions">
-            <button class="button button-purple" type="submit">Save homepage numbers</button>
+            <button class="button button-purple" type="submit">Save homepage numbers draft</button>
           </div>
         </form>
       </section>
@@ -61,7 +98,7 @@
       <div class="admin-workspace">
         <section class="admin-panel">
           <h2 data-editor-title>Add an update</h2>
-          <p>Save changes to the working list, review them, then publish.</p>
+          <p>Save this into the draft list, review it, then publish to GitHub when ready.</p>
           <form data-admin-editor>
             <div class="field"><label for="post-title">Title</label><input id="post-title" name="title" required></div>
             <div class="field-grid">
@@ -73,15 +110,15 @@
             <div class="field"><label for="post-content">Post content</label><textarea id="post-content" name="content" required></textarea></div>
             <label class="check-field"><input id="post-featured" name="featured" type="checkbox" checked><span>Show this post in the homepage latest-updates panel.</span></label>
             <div class="admin-actions">
-              <button class="button button-purple" type="submit">Save to working list</button>
+              <button class="button button-purple" type="submit">Save update draft</button>
               <button class="button button-outline-dark" type="button" data-clear-editor>Clear</button>
             </div>
           </form>
         </section>
 
         <section class="admin-panel">
-          <h2>Current posts</h2>
-          <p>Changes here remain local until you select "Publish to GitHub."</p>
+          <h2>Current update drafts</h2>
+          <p>Changes here stay in this admin screen until you select "Publish live changes to GitHub."</p>
           <div class="admin-posts" data-admin-list></div>
         </section>
       </div>

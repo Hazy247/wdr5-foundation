@@ -118,7 +118,7 @@ function saveSettingsFromForm({ silent = false } = {}) {
   });
 
   renderSettingsForm();
-  if (!silent) setStatus("Homepage numbers saved to the working copy. Publish to send them to GitHub.", "warning");
+  if (!silent) setStatus("Homepage numbers saved as a draft on this screen. Select Publish live changes to GitHub to update the public website.", "warning");
   return true;
 }
 
@@ -143,10 +143,10 @@ function editPost(id) {
 }
 
 function deletePost(id) {
-  if (!confirm("Delete this update from the working list? It will not reach GitHub until you publish.")) return;
+  if (!confirm("Delete this update from the draft list? It will not affect the public website until you publish.")) return;
   adminState.posts = adminState.posts.filter((post) => post.id !== id);
   renderList();
-  setStatus("Post removed from the working list. Publish to save the change.", "warning");
+  setStatus("Post removed from the draft list. Select Publish live changes to GitHub to update the public website.", "warning");
 }
 
 async function loadPublicData() {
@@ -162,7 +162,7 @@ async function loadPublicData() {
   renderList();
   renderSettingsForm();
   clearEditor();
-  setStatus("Loaded the current public updates and homepage numbers. Connect GitHub when you are ready to publish.", "success");
+  setStatus("Loaded the public copy for preview. To publish changes, enter your GitHub repository and private update key, then connect to GitHub.", "success");
 }
 
 async function readGitHubFile(settings, path) {
@@ -216,7 +216,7 @@ async function writeGitHubFile(settings, path, content, sha, message) {
 async function connectGitHub() {
   const settings = getSettings();
   if (!settings.repo || !settings.token) {
-    setStatus("Enter the GitHub repository and a fine-grained access token.", "error");
+    setStatus("Enter the GitHub repository and your private GitHub update key before connecting.", "error");
     return;
   }
 
@@ -240,7 +240,7 @@ async function connectGitHub() {
     renderList();
     renderSettingsForm();
     clearEditor();
-    setStatus("Connected. The current updates and homepage numbers are ready to edit.", "success");
+    setStatus("Connected securely for this browser tab. You can now edit drafts and publish live changes to GitHub.", "success");
   } catch (error) {
     setStatus(error.message, "error");
   }
@@ -249,7 +249,7 @@ async function connectGitHub() {
 async function publishGitHub() {
   const settings = getSettings();
   if (!settings.repo || !settings.token) {
-    setStatus("Connect GitHub before publishing.", "error");
+    setStatus("Connect to GitHub with your private update key before publishing.", "error");
     return;
   }
   if (!saveSettingsFromForm({ silent: true })) {
@@ -257,7 +257,7 @@ async function publishGitHub() {
     return;
   }
 
-  setStatus("Publishing changes to GitHub...");
+  setStatus("Publishing live changes to GitHub...");
 
   const date = new Date().toISOString().slice(0, 10);
   const postsContent = JSON.stringify([...adminState.posts].sort((a, b) => new Date(b.date) - new Date(a.date)), null, 2) + "\n";
@@ -321,7 +321,7 @@ els.editor?.addEventListener("submit", (event) => {
   else adminState.posts.unshift(post);
   renderList();
   clearEditor();
-  setStatus("Update saved to the working list. Publish to send it to GitHub.", "warning");
+  setStatus("Update saved as a draft on this screen. Select Publish live changes to GitHub to update the public website.", "warning");
 });
 
 document.querySelector("[data-connect-github]")?.addEventListener("click", connectGitHub);
