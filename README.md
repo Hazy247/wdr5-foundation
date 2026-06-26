@@ -20,11 +20,12 @@ To save live updates:
 2. Enter the branch, normally `main`.
 3. Leave the updates path as `data/updates.json`.
 4. Leave the homepage numbers path as `data/site-settings.json`.
-5. Enter a fine-grained GitHub personal access token with **Contents: Read and write** access to this repository.
-6. Select **Connect and load from GitHub**.
-7. Edit update posts or homepage numbers.
-8. Select the section's **Save draft** button.
-9. Select **Publish live changes to GitHub**.
+5. Leave the image upload folder as `assets/images/uploads`, unless you want admin uploads saved somewhere else.
+6. Enter a fine-grained GitHub personal access token with **Contents: Read and write** access to this repository.
+7. Select **Connect and load from GitHub**.
+8. Edit update posts, homepage numbers, or upload images.
+9. Select the section's **Save draft** button.
+10. Select **Publish live changes to GitHub**.
 
 The token is kept in session storage only and is not committed to the site. Publishing edits `data/updates.json` and `data/site-settings.json` through the GitHub API, which triggers a new Pages deployment.
 
@@ -33,10 +34,17 @@ The homepage "Families Registered" and "Countries" numbers are controlled from t
 Update posts use one shared data file:
 
 - the **Tile summary** appears on the updates page and homepage latest-updates panel
+- the **Tile image** is used only for smaller cards and thumbnails
+- the optional **Full article header image** appears large at the top of the article page
 - the **Full article body** appears on `update.html?id=post-id`
 - blank lines in the article body become paragraphs
 - lines beginning with `##` become headings
 - lines beginning with `-` become bullet points
+- uploaded body images are saved in `assets/images/uploads/` and inserted using `![Alt text](assets/images/uploads/example.jpg "Optional caption")`
+
+The admin image uploader requires the GitHub repository and private update key. Uploading an image commits the image file immediately into the configured image upload folder; after it is inserted into a post, select **Save update draft** and then **Publish live changes to GitHub** so the public article points to that image.
+
+If you see a GitHub error saying `"sha" wasn't supplied`, update `assets/js/admin.js` from this project. The admin now automatically fetches the required GitHub file ID before publishing existing JSON files.
 
 For greater security and multiple editors, replace this browser-token workflow with a server-backed CMS or GitHub App before inviting a larger team.
 

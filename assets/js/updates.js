@@ -63,6 +63,36 @@ function articleUrl(post) {
   return `update.html?id=${encodeURIComponent(post.id)}`;
 }
 
+function safeUrl(value) {
+  const url = String(value || "").trim();
+  if (/^(javascript|data):/i.test(url)) return "";
+  return url;
+}
+
+function imageSrc(value, fallback = "assets/images/update-research.jpg") {
+  return escapeHtml(safeUrl(value) || fallback);
+}
+
+function parseImageLine(line) {
+  const match = line.match(/^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]+)")?\)$/);
+  if (!match) return null;
+  const src = safeUrl(match[2]);
+  if (!src) return null;
+  return {
+    alt: match[1] || "",
+    src,
+    caption: match[3] || "",
+  };
+}
+
+function renderFigure(image) {
+  return `
+    <figure>
+      <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt)}">
+      ${image.caption ? `<figcaption>${escapeHtml(image.caption)}</figcaption>` : ""}
+    </figure>`;
+}
+
 function formatArticleContent(value) {
   const text = String(value || "").trim();
   if (!text) return "<p>More details will be added soon.</p>";
@@ -70,6 +100,11 @@ function formatArticleContent(value) {
   return text.split(/\n{2,}/).map((block) => {
     const lines = block.split(/\n/).map((line) => line.trim()).filter(Boolean);
     if (!lines.length) return "";
+
+    if (lines.length === 1) {
+      const image = parseImageLine(lines[0]);
+      if (image) return renderFigure(image);
+    }
 
     if (lines.length === 1 && lines[0].startsWith("### ")) {
       return `<h3>${escapeHtml(lines[0].slice(4))}</h3>`;
@@ -105,7 +140,7 @@ function renderHomeUpdates(posts) {
   const featured = posts.filter((post) => post.featured).slice(0, 3);
   mount.innerHTML = featured.map((post) => `
     <article class="mini-update">
-      <img src="${escapeHtml(post.image || "assets/images/update-research.jpg")}" alt="">
+      <img src="${imageSrc(post.image)}" alt="">
       <div>
         <span class="eyebrow">${escapeHtml(post.category || "Update")}</span>
         <h3><a href="updates.html#${encodeURIComponent(post.id)}">${escapeHtml(post.title)}</a></h3>
@@ -147,7 +182,7 @@ function renderUpdatesPage(posts) {
 
     mount.innerHTML = visible.length ? visible.map((post) => `
       <a class="update-card update-card-link-card" id="${escapeHtml(post.id)}" href="${articleUrl(post)}" aria-label="Read full article: ${escapeHtml(post.title)}">
-        <img src="${escapeHtml(post.image || "assets/images/update-research.jpg")}" alt="">
+        <img src="${imageSrc(post.image)}" alt="">
         <div class="update-body">
           <div class="update-meta"><span>${escapeHtml(post.category || "Update")}</span><time datetime="${escapeHtml(post.date)}">${displayDate(post.date)}</time></div>
           <h2>${escapeHtml(post.title)}</h2>
@@ -205,13 +240,15 @@ function renderArticlePage(posts) {
   if (intro) intro.textContent = post.summary;
   document.title = `${post.title} | WDR5 Foundation`;
 
+  const heroImage = safeUrl(post.heroImage);
+
   mount.innerHTML = `
     <article class="article-detail">
       <a class="text-link" href="updates.html#${encodeURIComponent(post.id)}">← Back to updates</a>
       <div class="article-meta"><span>${escapeHtml(post.category || "Update")}</span><time datetime="${escapeHtml(post.date)}">${displayDate(post.date)}</time></div>
       <h1>${escapeHtml(post.title)}</h1>
       <p class="article-summary">${escapeHtml(post.summary)}</p>
-      <img class="article-image" src="${escapeHtml(post.image || "assets/images/update-research.jpg")}" alt="">
+      ${heroImage ? `<img class="article-image" src="${escapeHtml(heroImage)}" alt="">` : ""}
       <div class="article-content">${formatArticleContent(post.content)}</div>
       <div class="article-actions">
         <a class="button button-purple" href="updates.html#${encodeURIComponent(post.id)}">Back to all updates</a>
@@ -228,7 +265,7 @@ function renderRelatedUpdates(posts, currentId) {
   const related = posts.filter((post) => post.id !== currentId).slice(0, 3);
   mount.innerHTML = related.length ? related.map((post) => `
     <a class="related-update" href="${articleUrl(post)}">
-      <img src="${escapeHtml(post.image || "assets/images/update-research.jpg")}" alt="">
+      <img src="${imageSrc(post.image)}" alt="">
       <span>
         <span class="eyebrow">${escapeHtml(post.category || "Update")}</span>
         <strong>${escapeHtml(post.title)}</strong>

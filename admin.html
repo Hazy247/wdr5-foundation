@@ -65,6 +65,11 @@
             <span class="field-help">Leave this as-is unless you move the file.</span>
           </div>
           <div class="field">
+            <label for="github-upload-folder">Image upload folder</label>
+            <input id="github-upload-folder" value="assets/images/uploads">
+            <span class="field-help">New admin uploads are saved here in your GitHub repo.</span>
+          </div>
+          <div class="field">
             <label for="github-token">Private GitHub update key</label>
             <input id="github-token" type="password" autocomplete="off" placeholder="github_pat_...">
             <span class="field-help">Use a fine-grained personal access token with Contents: Read and write for this repository only.</span>
@@ -115,14 +120,50 @@
               <span class="field-help">A short teaser for the updates page tile and homepage latest-updates panel.</span>
             </div>
             <div class="field">
-              <label for="post-image">Tile/article image URL or site path</label>
+              <label for="post-image">Tile image URL or site path</label>
               <input id="post-image" name="image" placeholder="assets/images/example.jpg">
-              <span class="field-help">This image appears on the tile and at the top of the full article.</span>
+              <span class="field-help">This smaller image appears on the homepage and updates-page tile.</span>
+            </div>
+            <div class="field">
+              <label for="post-heroImage">Full article header image URL or site path</label>
+              <input id="post-heroImage" name="heroImage" placeholder="assets/images/uploads/article-header.jpg">
+              <span class="field-help">Optional. Use a larger, sharper image here. If blank, the article will not stretch the tile image.</span>
+            </div>
+
+            <div class="admin-upload-card">
+              <h3>Upload image to the repo</h3>
+              <p>Use this to add images to your GitHub images folder, then place them in the full article body, header image, or tile image.</p>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="article-image-file">Image file</label>
+                  <input id="article-image-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+                </div>
+                <div class="field">
+                  <label for="article-image-alt">Alt text / description</label>
+                  <input id="article-image-alt" placeholder="Researcher looking through a microscope">
+                </div>
+                <div class="field">
+                  <label for="article-image-caption">Caption</label>
+                  <input id="article-image-caption" placeholder="Optional caption below the image">
+                </div>
+                <div class="field">
+                  <label for="article-image-placement">After upload</label>
+                  <select id="article-image-placement">
+                    <option value="body">Insert into full article body</option>
+                    <option value="hero">Use as full article header image</option>
+                    <option value="tile">Use as tile image</option>
+                  </select>
+                </div>
+              </div>
+              <div class="admin-actions">
+                <button class="button button-teal" type="button" data-upload-article-image>Upload selected image</button>
+              </div>
+              <span class="field-help">Requires your GitHub repository and private update key above. Images are saved to the image upload folder set near the top of this page.</span>
             </div>
             <div class="field">
               <label for="post-content">Full article body</label>
               <textarea id="post-content" name="content" class="article-editor" required></textarea>
-              <span class="field-help">Use blank lines for new paragraphs. You can also use ## Headings and - bullet points.</span>
+              <span class="field-help">Use blank lines for new paragraphs. You can also use ## Headings, - bullet points, and uploaded images.</span>
             </div>
             <label class="check-field"><input id="post-featured" name="featured" type="checkbox" checked><span>Show this post in the homepage latest-updates panel.</span></label>
             <div class="admin-actions">

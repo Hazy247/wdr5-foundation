@@ -26,6 +26,7 @@ function getSettings() {
     branch: document.querySelector("#github-branch").value.trim() || "main",
     path: document.querySelector("#github-path").value.trim() || "data/updates.json",
     settingsPath: document.querySelector("#github-settings-path").value.trim() || "data/site-settings.json",
+    uploadFolder: (document.querySelector("#github-upload-folder")?.value.trim() || "assets/images/uploads").replace(/^\/+|\/+$/g, ""),
     token: document.querySelector("#github-token").value.trim(),
   };
 }
@@ -39,6 +40,16 @@ function encodeBase64(text) {
   const bytes = new TextEncoder().encode(text);
   let binary = "";
   bytes.forEach((byte) => { binary += String.fromCharCode(byte); });
+  return btoa(binary);
+}
+
+function encodeArrayBufferBase64(buffer) {
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+  const chunkSize = 0x8000;
+  for (let index = 0; index < bytes.length; index += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize));
+  }
   return btoa(binary);
 }
 
@@ -65,6 +76,41 @@ function normalizeSettings(settings) {
 
 function slugify(value) {
   return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function buildUploadPath(file, altText, uploadFolder = "assets/images/uploads") {
+  const extensions = {
+    "image/jpeg": "jpg",
+    "image/png": "png",
+    "image/webp": "webp",
+    "image/gif": "gif",
+  };
+  const extension = extensions[file.type];
+  if (!extension) throw new Error("Please upload a JPG, PNG, WebP or GIF image.");
+  if (file.size > 5 * 1024 * 1024) throw new Error("Please keep uploaded images under 5 MB.");
+
+  const originalName = file.name.replace(/\.[^.]+$/, "");
+  const baseName = slugify(altText || originalName || "article-image") || "article-image";
+  const stamp = Date.now().toString(36);
+  const suffix = Math.random().toString(36).slice(2, 7);
+  return `${uploadFolder || "assets/images/uploads"}/${stamp}-${suffix}-${baseName}.${extension}`;
+}
+
+function imageMarkdown(path, altText, caption) {
+  const alt = (altText || "Article image").replace(/[\[\]\n\r]/g, " ").trim();
+  const cleanCaption = (caption || "").replace(/["\n\r]/g, " ").trim();
+  return cleanCaption ? `![${alt}](${path} "${cleanCaption}")` : `![${alt}](${path})`;
+}
+
+function insertIntoTextarea(textarea, value) {
+  const start = textarea.selectionStart ?? textarea.value.length;
+  const end = textarea.selectionEnd ?? textarea.value.length;
+  const before = textarea.value.slice(0, start).replace(/\s+$/, "");
+  const after = textarea.value.slice(end).replace(/^\s+/, "");
+  textarea.value = `${before}${before ? "\n\n" : ""}${value}${after ? "\n\n" : ""}${after}`;
+  const cursor = before.length + (before ? 2 : 0) + value.length;
+  textarea.focus();
+  textarea.setSelectionRange(cursor, cursor);
 }
 
 function renderList() {
@@ -136,7 +182,7 @@ function editPost(id) {
   if (!post) return;
   adminState.editingId = id;
   document.querySelector("[data-editor-title]").textContent = "Edit update";
-  ["title", "date", "category", "summary", "image", "content"].forEach((field) => {
+  ["title", "date", "category", "summary", "image", "heroImage", "content"].forEach((field) => {
     document.querySelector(`#post-${field}`).value = post[field] || "";
   });
   document.querySelector("#post-featured").checked = Boolean(post.featured);
@@ -186,13 +232,32 @@ async function readGitHubFile(settings, path) {
   };
 }
 
+async function getGitHubFileSha(settings, path) {
+  const response = await fetch(`https://api.github.com/repos/${settings.repo}/contents/${path}?ref=${encodeURIComponent(settings.branch)}`, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${settings.token}`,
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+
+  if (response.status === 404) return "";
+  if (!response.ok) {
+    throw new Error(`GitHub returned ${response.status} while checking ${path}.`);
+  }
+
+  const file = await response.json();
+  return file.sha || "";
+}
+
 async function writeGitHubFile(settings, path, content, sha, message) {
   const body = {
     message,
     content: encodeBase64(content),
     branch: settings.branch,
   };
-  if (sha) body.sha = sha;
+  const existingSha = sha || await getGitHubFileSha(settings, path);
+  if (existingSha) body.sha = existingSha;
 
   const response = await fetch(`https://api.github.com/repos/${settings.repo}/contents/${path}`, {
     method: "PUT",
@@ -214,6 +279,31 @@ async function writeGitHubFile(settings, path, content, sha, message) {
   return result.content.sha;
 }
 
+async function writeGitHubBase64File(settings, path, base64Content, message) {
+  const response = await fetch(`https://api.github.com/repos/${settings.repo}/contents/${path}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${settings.token}`,
+      "Content-Type": "application/json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+    body: JSON.stringify({
+      message,
+      content: base64Content,
+      branch: settings.branch,
+    }),
+  });
+
+  if (!response.ok) {
+    const detail = await response.json().catch(() => ({}));
+    throw new Error(detail.message || `GitHub returned ${response.status} while uploading the image.`);
+  }
+
+  const result = await response.json();
+  return result.content.path;
+}
+
 async function connectGitHub() {
   const settings = getSettings();
   if (!settings.repo || !settings.token) {
@@ -226,6 +316,7 @@ async function connectGitHub() {
     branch: settings.branch,
     path: settings.path,
     settingsPath: settings.settingsPath,
+    uploadFolder: settings.uploadFolder,
   }));
   sessionStorage.setItem("wdr5-github-token", settings.token);
   setStatus("Connecting to GitHub...");
@@ -298,6 +389,49 @@ function exportSettingsJson() {
   setStatus("Downloaded site-settings.json for manual upload to GitHub.", "success");
 }
 
+async function uploadArticleImage() {
+  const settings = getSettings();
+  if (!settings.repo || !settings.token) {
+    setStatus("Enter your GitHub repository and private update key before uploading images.", "error");
+    return;
+  }
+
+  const fileInput = document.querySelector("#article-image-file");
+  const file = fileInput?.files?.[0];
+  if (!file) {
+    setStatus("Choose an image file to upload.", "error");
+    return;
+  }
+
+  const altText = document.querySelector("#article-image-alt").value.trim();
+  const caption = document.querySelector("#article-image-caption").value.trim();
+  const placement = document.querySelector("#article-image-placement").value;
+
+  try {
+    const path = buildUploadPath(file, altText, settings.uploadFolder);
+    setStatus("Uploading image to GitHub...");
+    const base64Content = encodeArrayBufferBase64(await file.arrayBuffer());
+    const uploadedPath = await writeGitHubBase64File(settings, path, base64Content, `Upload website image (${new Date().toISOString().slice(0, 10)})`);
+
+    if (placement === "hero") {
+      document.querySelector("#post-heroImage").value = uploadedPath;
+      setStatus("Image uploaded and added as the full article header image. Save the update draft, then publish live changes.", "success");
+    } else if (placement === "tile") {
+      document.querySelector("#post-image").value = uploadedPath;
+      setStatus("Image uploaded and added as the tile image. Save the update draft, then publish live changes.", "success");
+    } else {
+      insertIntoTextarea(document.querySelector("#post-content"), imageMarkdown(uploadedPath, altText, caption));
+      setStatus("Image uploaded and inserted into the full article body. Save the update draft, then publish live changes.", "success");
+    }
+
+    fileInput.value = "";
+    document.querySelector("#article-image-alt").value = "";
+    document.querySelector("#article-image-caption").value = "";
+  } catch (error) {
+    setStatus(error.message, "error");
+  }
+}
+
 els.settingsEditor?.addEventListener("submit", (event) => {
   event.preventDefault();
   saveSettingsFromForm();
@@ -314,6 +448,7 @@ els.editor?.addEventListener("submit", (event) => {
     category: data.category,
     summary: data.summary.trim(),
     image: data.image.trim() || "assets/images/update-research.jpg",
+    heroImage: data.heroImage.trim(),
     content: data.content.trim(),
     featured: data.featured === "on",
   };
@@ -330,6 +465,7 @@ document.querySelector("[data-load-public]")?.addEventListener("click", loadPubl
 document.querySelector("[data-publish-github]")?.addEventListener("click", publishGitHub);
 document.querySelector("[data-export-json]")?.addEventListener("click", exportJson);
 document.querySelector("[data-export-settings-json]")?.addEventListener("click", exportSettingsJson);
+document.querySelector("[data-upload-article-image]")?.addEventListener("click", uploadArticleImage);
 document.querySelector("[data-clear-editor]")?.addEventListener("click", clearEditor);
 
 const saved = JSON.parse(localStorage.getItem("wdr5-admin-settings") || "{}");
@@ -337,5 +473,6 @@ document.querySelector("#github-repo").value = saved.repo || "";
 document.querySelector("#github-branch").value = saved.branch || "main";
 document.querySelector("#github-path").value = saved.path || "data/updates.json";
 document.querySelector("#github-settings-path").value = saved.settingsPath || "data/site-settings.json";
+document.querySelector("#github-upload-folder").value = saved.uploadFolder || "assets/images/uploads";
 document.querySelector("#github-token").value = sessionStorage.getItem("wdr5-github-token") || "";
 loadPublicData();
