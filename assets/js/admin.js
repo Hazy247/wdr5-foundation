@@ -9,6 +9,9 @@ const adminState = {
     },
   },
   settingsSha: "",
+  pageContent: window.WDR5?.normalizePageContent?.() || { version: 1, pages: {} },
+  pageContentSha: "",
+  activePage: "",
   images: [],
   editingId: null,
 };
@@ -17,6 +20,10 @@ const els = {
   connection: document.querySelector("[data-admin-connection]"),
   editor: document.querySelector("[data-admin-editor]"),
   settingsEditor: document.querySelector("[data-settings-editor]"),
+  pageEditor: document.querySelector("[data-page-editor]"),
+  pageSelect: document.querySelector("[data-page-select]"),
+  pageFields: document.querySelector("[data-page-fields]"),
+  pageSummary: document.querySelector("[data-page-editor-summary]"),
   list: document.querySelector("[data-admin-list]"),
   imageLibrary: document.querySelector("[data-image-library]"),
   imageLog: document.querySelector("[data-image-log]"),
@@ -29,6 +36,7 @@ function getSettings() {
     branch: document.querySelector("#github-branch").value.trim() || "main",
     path: document.querySelector("#github-path").value.trim() || "data/updates.json",
     settingsPath: document.querySelector("#github-settings-path").value.trim() || "data/site-settings.json",
+    pageContentPath: document.querySelector("#github-page-content-path").value.trim() || "data/page-content.json",
     uploadFolder: (document.querySelector("#github-upload-folder")?.value.trim() || "assets/images/uploads").replace(/^\/+|\/+$/g, ""),
     token: document.querySelector("#github-token").value.trim(),
   };
@@ -75,6 +83,12 @@ function normalizeSettings(settings) {
   return window.WDR5?.normalizeSiteSettings
     ? window.WDR5.normalizeSiteSettings(settings)
     : adminState.settings;
+}
+
+function normalizePageContent(content) {
+  return window.WDR5?.normalizePageContent
+    ? window.WDR5.normalizePageContent(content)
+    : (content && typeof content === "object" ? content : { version: 1, pages: {} });
 }
 
 function slugify(value) {
@@ -233,6 +247,63 @@ async function useImagePath(action, path) {
   }
 }
 
+function renderPageSelector() {
+  if (!els.pageSelect) return;
+  const pages = adminState.pageContent.pages || {};
+  const entries = Object.entries(pages);
+
+  if (!entries.length) {
+    els.pageSelect.innerHTML = '<option value="">No editable pages loaded</option>';
+    renderPageEditor();
+    return;
+  }
+
+  if (!adminState.activePage || !pages[adminState.activePage]) {
+    adminState.activePage = entries[0][0];
+  }
+
+  els.pageSelect.innerHTML = entries.map(([filename, page]) => (
+    `<option value="${escapeHtml(filename)}"${filename === adminState.activePage ? " selected" : ""}>${escapeHtml(page.title || filename)}</option>`
+  )).join("");
+  renderPageEditor();
+}
+
+function renderPageEditor() {
+  if (!els.pageFields) return;
+  const page = adminState.pageContent.pages?.[adminState.activePage];
+
+  if (!page || !Array.isArray(page.fields)) {
+    els.pageFields.innerHTML = '<p class="empty-state">No editable fields are available for this page.</p>';
+    if (els.pageSummary) els.pageSummary.textContent = "No page selected.";
+    return;
+  }
+
+  if (els.pageSummary) {
+    els.pageSummary.textContent = `${page.fields.length} editable field${page.fields.length === 1 ? "" : "s"} on ${page.title || adminState.activePage}.`;
+  }
+
+  els.pageFields.innerHTML = page.fields.map((field, index) => `
+    <div class="page-field-card">
+      <label for="page-field-${index}">${escapeHtml(field.label || field.selector || `Field ${index + 1}`)}</label>
+      <textarea id="page-field-${index}" data-page-field-index="${index}"${field.type === "html" ? ' class="code-textarea"' : ""}>${escapeHtml(field.value ?? "")}</textarea>
+      <span class="field-help">${field.type === "html" ? "HTML field — keep tags like &lt;span&gt; or &lt;br&gt; if you want the same styling." : "Plain text field."}</span>
+    </div>
+  `).join("");
+}
+
+function savePageContentFromForm({ silent = false } = {}) {
+  const page = adminState.pageContent.pages?.[adminState.activePage];
+  if (!page || !Array.isArray(page.fields)) return false;
+
+  els.pageFields?.querySelectorAll("[data-page-field-index]").forEach((fieldEl) => {
+    const index = Number(fieldEl.dataset.pageFieldIndex);
+    if (page.fields[index]) page.fields[index].value = fieldEl.value;
+  });
+
+  if (!silent) setStatus("Page content saved as a draft on this screen. Select Publish live changes to GitHub to update the public website.", "warning");
+  return true;
+}
+
 function renderSettingsForm() {
   const settings = normalizeSettings(adminState.settings);
   adminState.settings = settings;
@@ -296,17 +367,21 @@ function deletePost(id) {
 }
 
 async function loadPublicData() {
-  const [posts, siteSettings] = await Promise.all([
+  const [posts, siteSettings, pageContent] = await Promise.all([
     window.WDR5Updates.getUpdates(),
     window.WDR5.loadSiteSettings(),
+    window.WDR5.loadPageContent(),
   ]);
 
   adminState.posts = posts;
   adminState.sha = "";
   adminState.settings = normalizeSettings(siteSettings);
   adminState.settingsSha = "";
+  adminState.pageContent = normalizePageContent(pageContent);
+  adminState.pageContentSha = "";
   renderList();
   renderSettingsForm();
+  renderPageSelector();
   clearEditor();
   setStatus("Loaded the public copy for preview. To publish changes, enter your GitHub repository and private update key, then connect to GitHub.", "success");
 }
@@ -466,6 +541,7 @@ async function connectGitHub() {
     path: settings.path,
     settingsPath: settings.settingsPath,
     uploadFolder: settings.uploadFolder,
+    pageContentPath: settings.pageContentPath,
   }));
   sessionStorage.setItem("wdr5-github-token", settings.token);
   setStatus("Connecting to GitHub...");
@@ -473,13 +549,17 @@ async function connectGitHub() {
   try {
     const updatesFile = await readGitHubFile(settings, settings.path);
     const settingsFile = await readGitHubFile(settings, settings.settingsPath);
+    const pageContentFile = await readGitHubFile(settings, settings.pageContentPath);
 
     adminState.posts = JSON.parse(updatesFile.content);
     adminState.sha = updatesFile.sha;
     adminState.settings = normalizeSettings(JSON.parse(settingsFile.content));
     adminState.settingsSha = settingsFile.sha;
+    adminState.pageContent = normalizePageContent(JSON.parse(pageContentFile.content));
+    adminState.pageContentSha = pageContentFile.sha;
     renderList();
     renderSettingsForm();
+    renderPageSelector();
     clearEditor();
     await loadImageLibrary({ silent: true });
     setStatus("Connected securely for this browser tab. You can now edit drafts and publish live changes to GitHub.", "success");
@@ -498,16 +578,19 @@ async function publishGitHub() {
     setStatus("Please complete the homepage numbers before publishing.", "error");
     return;
   }
+  savePageContentFromForm({ silent: true });
 
   setStatus("Publishing live changes to GitHub...");
 
   const date = new Date().toISOString().slice(0, 10);
   const postsContent = JSON.stringify([...adminState.posts].sort((a, b) => new Date(b.date) - new Date(a.date)), null, 2) + "\n";
   const settingsContent = JSON.stringify(normalizeSettings(adminState.settings), null, 2) + "\n";
+  const pageContent = JSON.stringify(normalizePageContent(adminState.pageContent), null, 2) + "\n";
 
   try {
     adminState.sha = await writeGitHubFile(settings, settings.path, postsContent, adminState.sha, `Update foundation posts (${date})`);
     adminState.settingsSha = await writeGitHubFile(settings, settings.settingsPath, settingsContent, adminState.settingsSha, `Update homepage numbers (${date})`);
+    adminState.pageContentSha = await writeGitHubFile(settings, settings.pageContentPath, pageContent, adminState.pageContentSha, `Update editable page content (${date})`);
     setStatus("Published. GitHub Pages will refresh after its deployment finishes.", "success");
   } catch (error) {
     setStatus(error.message, "error");
@@ -537,6 +620,13 @@ function exportSettingsJson() {
   const content = JSON.stringify(normalizeSettings(adminState.settings), null, 2) + "\n";
   downloadJson(content, "site-settings.json");
   setStatus("Downloaded site-settings.json for manual upload to GitHub.", "success");
+}
+
+function exportPageContentJson() {
+  savePageContentFromForm({ silent: true });
+  const content = JSON.stringify(normalizePageContent(adminState.pageContent), null, 2) + "\n";
+  downloadJson(content, "page-content.json");
+  setStatus("Downloaded page-content.json for manual upload to GitHub.", "success");
 }
 
 async function uploadArticleImage() {
@@ -592,6 +682,17 @@ els.settingsEditor?.addEventListener("submit", (event) => {
   saveSettingsFromForm();
 });
 
+els.pageSelect?.addEventListener("change", () => {
+  savePageContentFromForm({ silent: true });
+  adminState.activePage = els.pageSelect.value;
+  renderPageEditor();
+});
+
+els.pageEditor?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  savePageContentFromForm();
+});
+
 els.editor?.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = Object.fromEntries(new FormData(els.editor).entries());
@@ -620,6 +721,7 @@ document.querySelector("[data-load-public]")?.addEventListener("click", loadPubl
 document.querySelector("[data-publish-github]")?.addEventListener("click", publishGitHub);
 document.querySelector("[data-export-json]")?.addEventListener("click", exportJson);
 document.querySelector("[data-export-settings-json]")?.addEventListener("click", exportSettingsJson);
+document.querySelector("[data-export-page-content-json]")?.addEventListener("click", exportPageContentJson);
 document.querySelector("[data-upload-article-image]")?.addEventListener("click", uploadArticleImage);
 document.querySelector("[data-load-images]")?.addEventListener("click", () => loadImageLibrary());
 document.querySelector("[data-clear-editor]")?.addEventListener("click", clearEditor);
@@ -629,7 +731,9 @@ document.querySelector("#github-repo").value = saved.repo || "";
 document.querySelector("#github-branch").value = saved.branch || "main";
 document.querySelector("#github-path").value = saved.path || "data/updates.json";
 document.querySelector("#github-settings-path").value = saved.settingsPath || "data/site-settings.json";
+document.querySelector("#github-page-content-path").value = saved.pageContentPath || "data/page-content.json";
 document.querySelector("#github-upload-folder").value = saved.uploadFolder || "assets/images/uploads";
 document.querySelector("#github-token").value = sessionStorage.getItem("wdr5-github-token") || "";
 renderImageLibrary();
+renderPageSelector();
 loadPublicData();

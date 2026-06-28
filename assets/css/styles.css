@@ -1552,6 +1552,35 @@ a.update-card {
   background: #fff1f3;
 }
 
+.admin-edit-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 22px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(7, 23, 75, .04);
+}
+
+.admin-edit-menu a {
+  padding: 10px 14px;
+  color: var(--navy);
+  border: 1px solid #d8dceb;
+  border-radius: 999px;
+  background: #f8faff;
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.admin-edit-menu a:hover,
+.admin-edit-menu a:focus-visible {
+  color: #fff;
+  border-color: var(--purple);
+  background: var(--purple);
+}
+
 .admin-panel {
   margin-bottom: 22px;
   padding: 26px;
@@ -1654,6 +1683,68 @@ a.update-card {
 
 .admin-sidebar .admin-panel {
   margin-bottom: 0;
+}
+
+.page-editor-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 340px) 1fr;
+  gap: 18px;
+  align-items: end;
+  margin: 20px 0;
+}
+
+.page-editor-summary {
+  padding: 13px 15px;
+  color: #3f5272;
+  border: 1px solid #d8dfed;
+  border-radius: 10px;
+  background: #f8fbff;
+  font-size: 13px;
+}
+
+.page-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.page-field-card {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbfcff;
+}
+
+.page-field-card label {
+  display: block;
+  min-height: 34px;
+  margin-bottom: 7px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 780;
+  line-height: 1.35;
+}
+
+.page-field-card textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 11px 12px;
+  color: var(--ink);
+  border: 1px solid #d6dce9;
+  border-radius: 9px;
+  background: #fff;
+  resize: vertical;
+}
+
+.page-field-card textarea.code-textarea {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+.page-field-card textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(122, 67, 223, .1);
+  outline: 0;
 }
 
 .admin-workspace {
@@ -2011,6 +2102,10 @@ a.update-card {
     grid-template-columns: 1fr;
   }
 
+  .page-fields {
+    grid-template-columns: 1fr;
+  }
+
   .admin-workspace {
     grid-template-columns: 1fr;
   }
@@ -2190,6 +2285,15 @@ a.update-card {
 
   .admin-intro {
     display: block;
+  }
+
+  .admin-edit-menu {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .page-editor-toolbar {
+    grid-template-columns: 1fr;
   }
 
   .image-library-item {

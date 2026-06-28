@@ -27,6 +27,14 @@
 
       <div class="admin-status" data-admin-status aria-live="polite">Loading the current website content...</div>
 
+      <nav class="admin-edit-menu" aria-label="Choose what to edit">
+        <a href="#page-content-editor">Edit pages</a>
+        <a href="#updates-editor">Updates & articles</a>
+        <a href="#image-library-panel">Images</a>
+        <a href="#homepage-numbers-panel">Homepage numbers</a>
+        <a href="#github-setup-panel">GitHub setup</a>
+      </nav>
+
       <div class="admin-top-grid">
         <section class="admin-panel admin-guide">
           <h2>How saving works</h2>
@@ -41,7 +49,7 @@
           <div class="admin-security-note"><strong>Important:</strong> visitors can open this page if they know the address, but they cannot publish changes unless they have your private GitHub update key. Do not share that key publicly.</div>
         </section>
 
-        <section class="admin-panel" data-admin-connection>
+        <section class="admin-panel" data-admin-connection id="github-setup-panel">
           <h2>GitHub publishing setup</h2>
           <p>The file path boxes can normally be left exactly as they are.</p>
           <div class="connection-grid">
@@ -64,6 +72,10 @@
               <input id="github-settings-path" value="data/site-settings.json">
             </div>
             <div class="field">
+              <label for="github-page-content-path">Editable page content file</label>
+              <input id="github-page-content-path" value="data/page-content.json">
+            </div>
+            <div class="field">
               <label for="github-upload-folder">Image upload folder</label>
               <input id="github-upload-folder" value="assets/images/uploads">
               <span class="field-help">New admin uploads are saved here.</span>
@@ -80,11 +92,30 @@
             <button class="button button-teal" type="button" data-publish-github>Publish live changes to GitHub</button>
             <button class="button button-outline-dark" type="button" data-export-json>Download updates JSON</button>
             <button class="button button-outline-dark" type="button" data-export-settings-json>Download numbers JSON</button>
+            <button class="button button-outline-dark" type="button" data-export-page-content-json>Download page content JSON</button>
           </div>
         </section>
       </div>
 
-      <div class="admin-dashboard-grid">
+      <section class="admin-panel" id="page-content-editor">
+        <h2>Edit page content</h2>
+        <p>Choose a page, edit its fields, then save the draft. These edits publish to <code>data/page-content.json</code>.</p>
+        <div class="page-editor-toolbar">
+          <div class="field">
+            <label for="page-content-select">Page to edit</label>
+            <select id="page-content-select" data-page-select></select>
+          </div>
+          <div class="page-editor-summary" data-page-editor-summary>Select a page to edit its content.</div>
+        </div>
+        <form data-page-editor>
+          <div class="page-fields" data-page-fields></div>
+          <div class="admin-actions">
+            <button class="button button-purple" type="submit">Save page content draft</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="admin-dashboard-grid" id="updates-editor">
         <section class="admin-panel admin-editor-panel">
           <h2 data-editor-title>Add an update</h2>
           <p>Use the short fields for the update tile, then write the longer article body underneath. Save the draft, review it, then publish to GitHub when ready.</p>
@@ -162,7 +193,7 @@
         </section>
 
         <aside class="admin-sidebar">
-          <section class="admin-panel">
+          <section class="admin-panel" id="image-library-panel">
             <h2>Image library</h2>
             <p>Load the images folder from GitHub, then copy paths or insert images without typing.</p>
             <div class="admin-actions">
@@ -176,7 +207,7 @@
             </div>
           </section>
 
-          <section class="admin-panel">
+          <section class="admin-panel" id="homepage-numbers-panel">
             <h2>Homepage numbers</h2>
             <p>These control the impact numbers shown over the homepage map.</p>
             <form data-settings-editor>

@@ -78,6 +78,44 @@ async function loadSiteSettings() {
   }
 }
 
+function normalizePageContent(content = {}) {
+  const pages = content && typeof content === "object" && content.pages && typeof content.pages === "object"
+    ? content.pages
+    : {};
+  return { version: content.version || 1, pages };
+}
+
+async function loadPageContent() {
+  try {
+    const response = await fetch("data/page-content.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("Page content file not available.");
+    return normalizePageContent(await response.json());
+  } catch (error) {
+    return normalizePageContent();
+  }
+}
+
+function applyEditablePageContent(content = {}) {
+  const normalized = normalizePageContent(content);
+  const currentPage = pageName || "index.html";
+  const page = normalized.pages[currentPage];
+  if (!page || !Array.isArray(page.fields)) return;
+
+  page.fields.forEach((field) => {
+    if (!field?.selector) return;
+    const target = document.querySelector(field.selector);
+    if (!target) return;
+
+    if (field.type === "html") {
+      target.innerHTML = field.value ?? "";
+    } else if (field.type === "attribute" && field.attribute) {
+      target.setAttribute(field.attribute, field.value ?? "");
+    } else {
+      target.textContent = field.value ?? "";
+    }
+  });
+}
+
 function renderHeroStats(settings = defaultSiteSettings) {
   const mount = document.querySelector("[data-hero-stats]");
   if (!mount) return;
@@ -260,6 +298,7 @@ initReveal();
 if (document.querySelector("[data-hero-stats]")) {
   loadSiteSettings().then(renderHeroStats);
 }
+loadPageContent().then(applyEditablePageContent);
 
 window.WDR5 = {
   icon,
@@ -267,4 +306,7 @@ window.WDR5 = {
   normalizeSiteSettings,
   loadSiteSettings,
   renderHeroStats,
+  normalizePageContent,
+  loadPageContent,
+  applyEditablePageContent,
 };

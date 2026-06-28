@@ -20,16 +20,19 @@ To save live updates:
 2. Enter the branch, normally `main`.
 3. Leave the updates path as `data/updates.json`.
 4. Leave the homepage numbers path as `data/site-settings.json`.
-5. Leave the image upload folder as `assets/images/uploads`, unless you want admin uploads saved somewhere else.
-6. Enter a fine-grained GitHub personal access token with **Contents: Read and write** access to this repository.
-7. Select **Connect and load from GitHub**.
-8. Edit update posts, homepage numbers, or upload images.
-9. Select the section's **Save draft** button.
-10. Select **Publish live changes to GitHub**.
+5. Leave the editable page content path as `data/page-content.json`.
+6. Leave the image upload folder as `assets/images/uploads`, unless you want admin uploads saved somewhere else.
+7. Enter a fine-grained GitHub personal access token with **Contents: Read and write** access to this repository.
+8. Select **Connect and load from GitHub**.
+9. Edit page content, update posts, homepage numbers, or upload images.
+10. Select the section's **Save draft** button.
+11. Select **Publish live changes to GitHub**.
 
-The token is kept in session storage only and is not committed to the site. Publishing edits `data/updates.json` and `data/site-settings.json` through the GitHub API, which triggers a new Pages deployment.
+The token is kept in session storage only and is not committed to the site. Publishing edits `data/updates.json`, `data/site-settings.json` and `data/page-content.json` through the GitHub API, which triggers a new Pages deployment.
 
 The homepage "Families Registered" and "Countries" numbers are controlled from the **Homepage numbers** section in the admin page.
+
+Most static page text is controlled from the **Edit pages** section in the admin page and stored in `data/page-content.json`. Choose a page from the dropdown, edit its fields, save the page-content draft, then publish.
 
 Update posts use one shared data file:
 
