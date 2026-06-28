@@ -1329,7 +1329,7 @@
           "label": "8. Donation amount: $25",
           "selector": "[data-cms=\"field-103\"]",
           "type": "text",
-          "value": "$25"
+          "value": "£25"
         },
         {
           "id": "field-104",
@@ -1343,7 +1343,7 @@
           "label": "10. Button/link: Choose $25",
           "selector": "[data-cms=\"field-105\"]",
           "type": "text",
-          "value": "Choose $25"
+          "value": "Choose £25"
         },
         {
           "id": "field-106",
@@ -1357,7 +1357,7 @@
           "label": "12. Donation amount: $50",
           "selector": "[data-cms=\"field-107\"]",
           "type": "text",
-          "value": "$50"
+          "value": "£50"
         },
         {
           "id": "field-108",
@@ -1371,7 +1371,7 @@
           "label": "14. Button/link: Choose $50",
           "selector": "[data-cms=\"field-109\"]",
           "type": "text",
-          "value": "Choose $50"
+          "value": "Choose £50"
         },
         {
           "id": "field-110",
@@ -1385,7 +1385,7 @@
           "label": "16. Donation amount: $100",
           "selector": "[data-cms=\"field-111\"]",
           "type": "text",
-          "value": "$100"
+          "value": "£100"
         },
         {
           "id": "field-112",
@@ -1399,7 +1399,7 @@
           "label": "18. Button/link: Choose $100",
           "selector": "[data-cms=\"field-113\"]",
           "type": "text",
-          "value": "Choose $100"
+          "value": "Choose £100"
         },
         {
           "id": "field-114",
