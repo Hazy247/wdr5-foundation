@@ -937,7 +937,7 @@
           "label": "1. Main heading: Help turn hope into progress.",
           "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
           "type": "text",
-          "value": "TEST"
+          "value": "Help turn hope into progress."
         },
         {
           "id": "field-2",
@@ -979,7 +979,7 @@
           "label": "7. Button/link: Choose $25",
           "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > a:nth-of-type(1)",
           "type": "text",
-          "value": "Choose $25"
+          "value": "Choose £25"
         },
         {
           "id": "field-8",
@@ -1000,7 +1000,7 @@
           "label": "10. Button/link: Choose $50",
           "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > a:nth-of-type(1)",
           "type": "text",
-          "value": "Choose $50"
+          "value": "Choose £50"
         },
         {
           "id": "field-11",
@@ -1021,7 +1021,7 @@
           "label": "13. Button/link: Choose $100",
           "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > a:nth-of-type(1)",
           "type": "text",
-          "value": "Choose $100"
+          "value": "Choose £100"
         },
         {
           "id": "field-14",
