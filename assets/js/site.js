@@ -70,7 +70,7 @@ function normalizeSiteSettings(settings = {}) {
 
 async function loadSiteSettings() {
   try {
-    const response = await fetch("data/site-settings.json", { cache: "no-store" });
+    const response = await fetch(`data/site-settings.json?v=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error("Site settings file not available.");
     return normalizeSiteSettings(await response.json());
   } catch (error) {
@@ -87,7 +87,7 @@ function normalizePageContent(content = {}) {
 
 async function loadPageContent() {
   try {
-    const response = await fetch("data/page-content.json", { cache: "no-store" });
+    const response = await fetch(`data/page-content.json?v=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error("Page content file not available.");
     return normalizePageContent(await response.json());
   } catch (error) {

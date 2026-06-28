@@ -1,120 +1,113 @@
 {
-  "version": 1,
+  "version": 5,
   "pages": {
     "index.html": {
       "title": "Home",
       "fields": [
         {
-          "id": "field-1",
-          "label": "1. Main heading: A communityof hope.A future ofpossibilities.",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
+          "id": "field-52",
+          "label": "1. Main heading: A community<br>of <span class=\"pink\">hope</span>.<br>A ?",
+          "selector": "[data-cms=\"field-52\"]",
           "type": "html",
           "value": "A community<br>of <span class=\"pink\">hope</span>.<br>A future of<br><span class=\"purple\">possibilities.</span>"
         },
         {
-          "id": "field-2",
+          "id": "field-53",
           "label": "2. Paragraph: Connecting people around the world affected by WDR5 thr?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "selector": "[data-cms=\"field-53\"]",
           "type": "text",
           "value": "Connecting people around the world affected by WDR5 through support, knowledge and research."
         },
         {
-          "id": "field-3",
+          "id": "field-54",
           "label": "3. Button/link: ♧ Join Our Community",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+          "selector": "[data-cms=\"field-54\"]",
           "type": "text",
           "value": "♧ Join Our Community"
         },
         {
           "id": "field-4",
-          "label": "4. Button/link: Learn More →",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(2)",
+          "label": "4. Button/link: Learn More <span aria-hidden=\"true\">→</span>",
+          "selector": "[data-cms=\"field-4\"]",
           "type": "html",
           "value": "Learn More <span aria-hidden=\"true\">→</span>"
         },
         {
-          "id": "field-5",
+          "id": "field-55",
           "label": "5. Section heading: What is WDR5?",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "selector": "[data-cms=\"field-55\"]",
           "type": "text",
           "value": "What is WDR5?"
         },
         {
-          "id": "field-6",
+          "id": "field-56",
           "label": "6. Paragraph: WDR5 is a rare genetic condition that affects neurodeve?",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "selector": "[data-cms=\"field-56\"]",
           "type": "text",
           "value": "WDR5 is a rare genetic condition that affects neurodevelopment. Learn about the gene, the condition and the impact on individuals and families."
         },
         {
-          "id": "field-7",
+          "id": "field-57",
           "label": "7. Button/link: Find Out More →",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+          "selector": "[data-cms=\"field-57\"]",
           "type": "text",
           "value": "Find Out More →"
         },
         {
-          "id": "field-8",
+          "id": "field-58",
           "label": "8. Section heading: Join Our Community",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "selector": "[data-cms=\"field-58\"]",
           "type": "text",
           "value": "Join Our Community"
         },
         {
-          "id": "field-9",
+          "id": "field-59",
           "label": "9. Paragraph: Connect with other families, share stories and access s?",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "selector": "[data-cms=\"field-59\"]",
           "type": "text",
           "value": "Connect with other families, share stories and access support in a safe, welcoming space."
         },
         {
-          "id": "field-10",
+          "id": "field-60",
           "label": "10. Button/link: Register Today →",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1)",
+          "selector": "[data-cms=\"field-60\"]",
           "type": "text",
           "value": "Register Today →"
         },
         {
-          "id": "field-11",
+          "id": "field-61",
           "label": "11. Section heading: Support Research",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "selector": "[data-cms=\"field-61\"]",
           "type": "text",
           "value": "Support Research"
         },
         {
-          "id": "field-12",
+          "id": "field-62",
           "label": "12. Paragraph: Help us fund and accelerate research to improve underst?",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "selector": "[data-cms=\"field-62\"]",
           "type": "text",
           "value": "Help us fund and accelerate research to improve understanding and create new possibilities."
         },
         {
-          "id": "field-13",
+          "id": "field-63",
           "label": "13. Button/link: ♡ Donate Now",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(1) > article:nth-of-type(3) > div:nth-of-type(1) > a:nth-of-type(1)",
+          "selector": "[data-cms=\"field-63\"]",
           "type": "text",
           "value": "♡ Donate Now"
         },
         {
-          "id": "field-14",
+          "id": "field-64",
           "label": "14. Section heading: Latest Updates",
-          "selector": "#latest-title",
+          "selector": "[data-cms=\"field-64\"]",
           "type": "text",
           "value": "Latest Updates"
         },
         {
-          "id": "field-15",
+          "id": "field-65",
           "label": "15. Button/link: View All Updates →",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1)",
+          "selector": "[data-cms=\"field-65\"]",
           "type": "text",
           "value": "View All Updates →"
-        },
-        {
-          "id": "field-16",
-          "label": "16. Paragraph: Loading updates…",
-          "selector": "#main > div:nth-of-type(1) > div:nth-of-type(2) > section:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
-          "type": "text",
-          "value": "Loading updates…"
         }
       ]
     },
@@ -122,261 +115,317 @@
       "title": "What is WDR5",
       "fields": [
         {
-          "id": "field-1",
-          "label": "1. Main heading: What is WDR5?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
+          "id": "field-130",
+          "label": "1. Small label: Understanding the condition",
+          "selector": "[data-cms=\"field-130\"]",
+          "type": "text",
+          "value": "Understanding the condition"
+        },
+        {
+          "id": "field-131",
+          "label": "2. Main heading: What is WDR5?",
+          "selector": "[data-cms=\"field-131\"]",
           "type": "text",
           "value": "What is WDR5?"
         },
         {
-          "id": "field-2",
-          "label": "2. Paragraph: A clear starting point for families, clinicians and any?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-132",
+          "label": "3. Paragraph: A clear starting point for families, clinicians and any?",
+          "selector": "[data-cms=\"field-132\"]",
           "type": "text",
           "value": "A clear starting point for families, clinicians and anyone learning about WDR5-related neurodevelopmental conditions."
         },
         {
-          "id": "field-3",
-          "label": "3. Section heading: About the WDR5 gene",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-133",
+          "label": "4. Section heading: About the WDR5 gene",
+          "selector": "[data-cms=\"field-133\"]",
           "type": "text",
           "value": "About the WDR5 gene"
         },
         {
-          "id": "field-4",
-          "label": "4. Paragraph: WDR5 is a gene that provides instructions for a protein?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-134",
+          "label": "5. Paragraph: WDR5 is a gene that provides instructions for a protein?",
+          "selector": "[data-cms=\"field-134\"]",
           "type": "text",
           "value": "WDR5 is a gene that provides instructions for a protein involved in regulating how other genes are switched on and off. Changes affecting this gene can disrupt typical development and may be associated with a range of neurodevelopmental features."
         },
         {
-          "id": "field-5",
-          "label": "5. Paragraph: Because WDR5-related conditions are rare, knowledge is ?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(2)",
+          "id": "field-135",
+          "label": "6. Paragraph: Because WDR5-related conditions are rare, knowledge is ?",
+          "selector": "[data-cms=\"field-135\"]",
           "type": "text",
           "value": "Because WDR5-related conditions are rare, knowledge is still developing. Every person is different, and the combination and intensity of features can vary considerably."
         },
         {
-          "id": "field-6",
-          "label": "6. Section heading: Features families may encounter",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > h2:nth-of-type(2)",
+          "id": "field-136",
+          "label": "7. Section heading: Features families may encounter",
+          "selector": "[data-cms=\"field-136\"]",
           "type": "text",
           "value": "Features families may encounter"
         },
         {
-          "id": "field-7",
-          "label": "7. List item: Developmental delay or intellectual disability",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+          "id": "field-137",
+          "label": "8. List item: Developmental delay or intellectual disability",
+          "selector": "[data-cms=\"field-137\"]",
           "type": "text",
           "value": "Developmental delay or intellectual disability"
         },
         {
-          "id": "field-8",
-          "label": "8. List item: Differences in speech, language and communication",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+          "id": "field-138",
+          "label": "9. List item: Differences in speech, language and communication",
+          "selector": "[data-cms=\"field-138\"]",
           "type": "text",
           "value": "Differences in speech, language and communication"
         },
         {
-          "id": "field-9",
-          "label": "9. List item: Motor, coordination or muscle-tone differences",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+          "id": "field-139",
+          "label": "10. List item: Motor, coordination or muscle-tone differences",
+          "selector": "[data-cms=\"field-139\"]",
           "type": "text",
           "value": "Motor, coordination or muscle-tone differences"
         },
         {
-          "id": "field-10",
-          "label": "10. List item: Feeding, sleep, sensory or behavioral challenges",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+          "id": "field-140",
+          "label": "11. List item: Feeding, sleep, sensory or behavioral challenges",
+          "selector": "[data-cms=\"field-140\"]",
           "type": "text",
           "value": "Feeding, sleep, sensory or behavioral challenges"
         },
         {
-          "id": "field-11",
-          "label": "11. List item: Medical features that require individual specialist rev?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(5)",
+          "id": "field-141",
+          "label": "12. List item: Medical features that require individual specialist rev?",
+          "selector": "[data-cms=\"field-141\"]",
           "type": "text",
           "value": "Medical features that require individual specialist review"
         },
         {
-          "id": "field-12",
-          "label": "12. Paragraph: This information is educational and should not replace ?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(3)",
+          "id": "field-142",
+          "label": "13. Paragraph: This information is educational and should not replace ?",
+          "selector": "[data-cms=\"field-142\"]",
           "type": "text",
           "value": "This information is educational and should not replace advice from a qualified healthcare professional who knows the individual."
         },
         {
-          "id": "field-13",
-          "label": "13. Section heading: Diagnosis and next steps",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > h2:nth-of-type(3)",
+          "id": "field-143",
+          "label": "14. Section heading: Diagnosis and next steps",
+          "selector": "[data-cms=\"field-143\"]",
           "type": "text",
           "value": "Diagnosis and next steps"
         },
         {
-          "id": "field-14",
-          "label": "14. Paragraph: A diagnosis is usually made through genetic testing, of?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(4)",
+          "id": "field-144",
+          "label": "15. Paragraph: A diagnosis is usually made through genetic testing, of?",
+          "selector": "[data-cms=\"field-144\"]",
           "type": "text",
           "value": "A diagnosis is usually made through genetic testing, often after an assessment by a clinical genetics or neurodevelopmental team. After diagnosis, families may be offered further medical checks, therapy referrals and ongoing developmental support based on individual needs."
         },
         {
-          "id": "field-15",
-          "label": "15. Card/subheading: You do not have to navigate this alone.",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-145",
+          "label": "16. Small label: Newly diagnosed?",
+          "selector": "[data-cms=\"field-145\"]",
+          "type": "text",
+          "value": "Newly diagnosed?"
+        },
+        {
+          "id": "field-146",
+          "label": "17. Card/subheading: You do not have to navigate this alone.",
+          "selector": "[data-cms=\"field-146\"]",
           "type": "text",
           "value": "You do not have to navigate this alone."
         },
         {
-          "id": "field-16",
-          "label": "16. Paragraph: Join the family directory, meet others with shared expe?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-147",
+          "label": "18. Paragraph: Join the family directory, meet others with shared expe?",
+          "selector": "[data-cms=\"field-147\"]",
           "type": "text",
           "value": "Join the family directory, meet others with shared experience and receive carefully selected information as knowledge grows."
         },
         {
-          "id": "field-17",
-          "label": "17. Button/link: Join the community",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+          "id": "field-148",
+          "label": "19. Button/link: Join the community",
+          "selector": "[data-cms=\"field-148\"]",
           "type": "text",
           "value": "Join the community"
         },
         {
-          "id": "field-18",
-          "label": "18. Card/subheading: Share knowledge",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(2) > h3:nth-of-type(1)",
+          "id": "field-149",
+          "label": "20. Small label: For clinicians",
+          "selector": "[data-cms=\"field-149\"]",
+          "type": "text",
+          "value": "For clinicians"
+        },
+        {
+          "id": "field-150",
+          "label": "21. Card/subheading: Share knowledge",
+          "selector": "[data-cms=\"field-150\"]",
           "type": "text",
           "value": "Share knowledge"
         },
         {
-          "id": "field-19",
-          "label": "19. Paragraph: We welcome contact from clinicians and researchers inte?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+          "id": "field-151",
+          "label": "22. Paragraph: We welcome contact from clinicians and researchers inte?",
+          "selector": "[data-cms=\"field-151\"]",
           "type": "text",
           "value": "We welcome contact from clinicians and researchers interested in collaboration, natural history and family-informed research."
         },
         {
-          "id": "field-20",
-          "label": "20. Button/link: Contact the foundation →",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)",
+          "id": "field-152",
+          "label": "23. Button/link: Contact the foundation →",
+          "selector": "[data-cms=\"field-152\"]",
           "type": "text",
           "value": "Contact the foundation →"
         },
         {
-          "id": "field-21",
-          "label": "21. Section heading: From diagnosis to connection",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-153",
+          "label": "24. Small label: A practical path forward",
+          "selector": "[data-cms=\"field-153\"]",
+          "type": "text",
+          "value": "A practical path forward"
+        },
+        {
+          "id": "field-154",
+          "label": "25. Section heading: From diagnosis to connection",
+          "selector": "[data-cms=\"field-154\"]",
           "type": "text",
           "value": "From diagnosis to connection"
         },
         {
-          "id": "field-22",
-          "label": "22. Paragraph: Three helpful first steps for families beginning their ?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-155",
+          "label": "26. Paragraph: Three helpful first steps for families beginning their ?",
+          "selector": "[data-cms=\"field-155\"]",
           "type": "text",
           "value": "Three helpful first steps for families beginning their WDR5 journey."
         },
         {
-          "id": "field-23",
-          "label": "23. Card/subheading: Build your care team",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-156",
+          "label": "27. Card icon/number: 1",
+          "selector": "[data-cms=\"field-156\"]",
+          "type": "text",
+          "value": "1"
+        },
+        {
+          "id": "field-157",
+          "label": "28. Card/subheading: Build your care team",
+          "selector": "[data-cms=\"field-157\"]",
           "type": "text",
           "value": "Build your care team"
         },
         {
-          "id": "field-24",
-          "label": "24. Paragraph: Work with genetics, developmental, therapy and medical ?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-158",
+          "label": "29. Paragraph: Work with genetics, developmental, therapy and medical ?",
+          "selector": "[data-cms=\"field-158\"]",
           "type": "text",
           "value": "Work with genetics, developmental, therapy and medical specialists to create a plan around the individual."
         },
         {
-          "id": "field-25",
-          "label": "25. Card/subheading: Record what matters",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > h3:nth-of-type(1)",
+          "id": "field-159",
+          "label": "30. Card icon/number: 2",
+          "selector": "[data-cms=\"field-159\"]",
+          "type": "text",
+          "value": "2"
+        },
+        {
+          "id": "field-160",
+          "label": "31. Card/subheading: Record what matters",
+          "selector": "[data-cms=\"field-160\"]",
           "type": "text",
           "value": "Record what matters"
         },
         {
-          "id": "field-26",
-          "label": "26. Paragraph: Keep reports, test results and questions together so ap?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+          "id": "field-161",
+          "label": "32. Paragraph: Keep reports, test results and questions together so ap?",
+          "selector": "[data-cms=\"field-161\"]",
           "type": "text",
           "value": "Keep reports, test results and questions together so appointments and referrals are easier to coordinate."
         },
         {
-          "id": "field-27",
-          "label": "27. Card/subheading: Connect with others",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > h3:nth-of-type(1)",
+          "id": "field-162",
+          "label": "33. Card icon/number: 3",
+          "selector": "[data-cms=\"field-162\"]",
+          "type": "text",
+          "value": "3"
+        },
+        {
+          "id": "field-163",
+          "label": "34. Card/subheading: Connect with others",
+          "selector": "[data-cms=\"field-163\"]",
           "type": "text",
           "value": "Connect with others"
         },
         {
-          "id": "field-28",
-          "label": "28. Paragraph: Shared experience can offer practical ideas, reassuranc?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+          "id": "field-164",
+          "label": "35. Paragraph: Shared experience can offer practical ideas, reassuranc?",
+          "selector": "[data-cms=\"field-164\"]",
           "type": "text",
           "value": "Shared experience can offer practical ideas, reassurance and a sense of belonging."
         },
         {
-          "id": "field-29",
-          "label": "29. Section heading: WDR5 FAQ",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-165",
+          "label": "36. Small label: Common questions",
+          "selector": "[data-cms=\"field-165\"]",
+          "type": "text",
+          "value": "Common questions"
+        },
+        {
+          "id": "field-166",
+          "label": "37. Section heading: WDR5 FAQ",
+          "selector": "[data-cms=\"field-166\"]",
           "type": "text",
           "value": "WDR5 FAQ"
         },
         {
-          "id": "field-30",
-          "label": "30. FAQ question: How rare are WDR5-related conditions?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(1)",
+          "id": "field-167",
+          "label": "38. FAQ question: How rare are WDR5-related conditions?",
+          "selector": "[data-cms=\"field-167\"]",
           "type": "text",
           "value": "How rare are WDR5-related conditions?"
         },
         {
-          "id": "field-31",
-          "label": "31. FAQ answer: They are currently considered very rare, and the number?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)",
+          "id": "field-168",
+          "label": "39. FAQ answer: They are currently considered very rare, and the number?",
+          "selector": "[data-cms=\"field-168\"]",
           "type": "text",
           "value": "They are currently considered very rare, and the number of diagnosed individuals is likely to grow as genetic testing becomes more widely available."
         },
         {
-          "id": "field-32",
-          "label": "32. FAQ question: Will every person have the same features?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > button:nth-of-type(1)",
+          "id": "field-169",
+          "label": "40. FAQ question: Will every person have the same features?",
+          "selector": "[data-cms=\"field-169\"]",
           "type": "text",
           "value": "Will every person have the same features?"
         },
         {
-          "id": "field-33",
-          "label": "33. FAQ answer: No. Genetic conditions can affect people differently. C?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1)",
+          "id": "field-170",
+          "label": "41. FAQ answer: No. Genetic conditions can affect people differently. C?",
+          "selector": "[data-cms=\"field-170\"]",
           "type": "text",
           "value": "No. Genetic conditions can affect people differently. Care and support should always be based on the individual's strengths, needs and clinical findings."
         },
         {
-          "id": "field-34",
-          "label": "34. FAQ question: Is research underway?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > button:nth-of-type(1)",
+          "id": "field-171",
+          "label": "42. FAQ question: Is research underway?",
+          "selector": "[data-cms=\"field-171\"]",
           "type": "text",
           "value": "Is research underway?"
         },
         {
-          "id": "field-35",
-          "label": "35. FAQ answer: Yes. Researchers are continuing to study WDR5 biology, ?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1)",
+          "id": "field-172",
+          "label": "43. FAQ answer: Yes. Researchers are continuing to study WDR5 biology, ?",
+          "selector": "[data-cms=\"field-172\"]",
           "type": "text",
           "value": "Yes. Researchers are continuing to study WDR5 biology, collect clinical information and explore how better knowledge may support future care and treatment strategies."
         },
         {
-          "id": "field-36",
-          "label": "36. FAQ question: How can our family help research?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > button:nth-of-type(1)",
+          "id": "field-173",
+          "label": "44. FAQ question: How can our family help research?",
+          "selector": "[data-cms=\"field-173\"]",
           "type": "text",
           "value": "How can our family help research?"
         },
         {
-          "id": "field-37",
-          "label": "37. FAQ answer: Register with the foundation and choose to receive rese?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1)",
+          "id": "field-174",
+          "label": "45. FAQ answer: Register with the foundation and choose to receive rese?",
+          "selector": "[data-cms=\"field-174\"]",
           "type": "text",
           "value": "Register with the foundation and choose to receive research opportunities. Participation should always be voluntary, informed and reviewed through appropriate ethics processes."
         }
@@ -386,254 +435,338 @@
       "title": "About Us",
       "fields": [
         {
-          "id": "field-1",
-          "label": "1. Main heading: Together, possibility grows.",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
+          "id": "field-129",
+          "label": "1. Small label: About the foundation",
+          "selector": "[data-cms=\"field-129\"]",
+          "type": "text",
+          "value": "About the foundation"
+        },
+        {
+          "id": "field-130",
+          "label": "2. Main heading: Together, possibility grows.",
+          "selector": "[data-cms=\"field-130\"]",
           "type": "text",
           "value": "Together, possibility grows."
         },
         {
-          "id": "field-2",
-          "label": "2. Paragraph: We unite families, clinicians, researchers and advocate?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-131",
+          "label": "3. Paragraph: We unite families, clinicians, researchers and advocate?",
+          "selector": "[data-cms=\"field-131\"]",
           "type": "text",
           "value": "We unite families, clinicians, researchers and advocates around a shared commitment to knowledge, support and hope."
         },
         {
-          "id": "field-3",
-          "label": "3. Section heading: Our mission",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-132",
+          "label": "4. Section heading: Our mission",
+          "selector": "[data-cms=\"field-132\"]",
           "type": "text",
           "value": "Our mission"
         },
         {
-          "id": "field-4",
-          "label": "4. Paragraph: The WDR5 Foundation exists to improve life for people a?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-133",
+          "label": "5. Paragraph: The WDR5 Foundation exists to improve life for people a?",
+          "selector": "[data-cms=\"field-133\"]",
           "type": "text",
           "value": "The WDR5 Foundation exists to improve life for people affected by WDR5-related conditions. We build trusted connections, make knowledge easier to access, elevate family experience and accelerate responsible research."
         },
         {
-          "id": "field-5",
-          "label": "5. Section heading: Our vision",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > h2:nth-of-type(2)",
+          "id": "field-134",
+          "label": "6. Section heading: Our vision",
+          "selector": "[data-cms=\"field-134\"]",
           "type": "text",
           "value": "Our vision"
         },
         {
-          "id": "field-6",
-          "label": "6. Paragraph: A world where every person with a WDR5-related conditio?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(2)",
+          "id": "field-135",
+          "label": "7. Paragraph: A world where every person with a WDR5-related conditio?",
+          "selector": "[data-cms=\"field-135\"]",
           "type": "text",
           "value": "A world where every person with a WDR5-related condition is understood, supported and able to benefit from the best possible care and scientific progress."
         },
         {
-          "id": "field-7",
-          "label": "7. Section heading: How we work",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > h2:nth-of-type(3)",
+          "id": "field-136",
+          "label": "8. Section heading: How we work",
+          "selector": "[data-cms=\"field-136\"]",
           "type": "text",
           "value": "How we work"
         },
         {
-          "id": "field-8",
-          "label": "8. Paragraph: Rare-disease progress is strongest when families and pr?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(3)",
+          "id": "field-137",
+          "label": "9. Paragraph: Rare-disease progress is strongest when families and pr?",
+          "selector": "[data-cms=\"field-137\"]",
           "type": "text",
           "value": "Rare-disease progress is strongest when families and professionals work side by side. We listen first, communicate clearly, protect privacy and invest energy where it can create durable benefit for the whole community."
         },
         {
-          "id": "field-9",
-          "label": "9. Quote: “No family should have to build the map alone.”",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > blockquote:nth-of-type(1)",
+          "id": "field-138",
+          "label": "10. Quote: “No family should have to build the map alone.”",
+          "selector": "[data-cms=\"field-138\"]",
           "type": "text",
           "value": "“No family should have to build the map alone.”"
         },
         {
-          "id": "field-10",
-          "label": "10. Section heading: Our values",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-139",
+          "label": "11. Quote citation: WDR5 Foundation community principle",
+          "selector": "[data-cms=\"field-139\"]",
+          "type": "text",
+          "value": "WDR5 Foundation community principle"
+        },
+        {
+          "id": "field-140",
+          "label": "12. Small label: What guides us",
+          "selector": "[data-cms=\"field-140\"]",
+          "type": "text",
+          "value": "What guides us"
+        },
+        {
+          "id": "field-141",
+          "label": "13. Section heading: Our values",
+          "selector": "[data-cms=\"field-141\"]",
           "type": "text",
           "value": "Our values"
         },
         {
-          "id": "field-11",
-          "label": "11. Card/subheading: Connection",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-142",
+          "label": "14. Card icon/number: ♧",
+          "selector": "[data-cms=\"field-142\"]",
+          "type": "text",
+          "value": "♧"
+        },
+        {
+          "id": "field-143",
+          "label": "15. Card/subheading: Connection",
+          "selector": "[data-cms=\"field-143\"]",
           "type": "text",
           "value": "Connection"
         },
         {
-          "id": "field-12",
-          "label": "12. Paragraph: We create spaces where people feel seen, heard and less?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-144",
+          "label": "16. Paragraph: We create spaces where people feel seen, heard and less?",
+          "selector": "[data-cms=\"field-144\"]",
           "type": "text",
           "value": "We create spaces where people feel seen, heard and less alone."
         },
         {
-          "id": "field-13",
-          "label": "13. Card/subheading: Trust",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > h3:nth-of-type(1)",
+          "id": "field-145",
+          "label": "17. Card icon/number: ◇",
+          "selector": "[data-cms=\"field-145\"]",
+          "type": "text",
+          "value": "◇"
+        },
+        {
+          "id": "field-146",
+          "label": "18. Card/subheading: Trust",
+          "selector": "[data-cms=\"field-146\"]",
           "type": "text",
           "value": "Trust"
         },
         {
-          "id": "field-14",
-          "label": "14. Paragraph: We communicate honestly and protect the confidence plac?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+          "id": "field-147",
+          "label": "19. Paragraph: We communicate honestly and protect the confidence plac?",
+          "selector": "[data-cms=\"field-147\"]",
           "type": "text",
           "value": "We communicate honestly and protect the confidence placed in us."
         },
         {
-          "id": "field-15",
-          "label": "15. Card/subheading: Curiosity",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > h3:nth-of-type(1)",
+          "id": "field-148",
+          "label": "20. Card icon/number: ✦",
+          "selector": "[data-cms=\"field-148\"]",
+          "type": "text",
+          "value": "✦"
+        },
+        {
+          "id": "field-149",
+          "label": "21. Card/subheading: Curiosity",
+          "selector": "[data-cms=\"field-149\"]",
           "type": "text",
           "value": "Curiosity"
         },
         {
-          "id": "field-16",
-          "label": "16. Paragraph: We keep asking better questions and make room for new e?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+          "id": "field-150",
+          "label": "22. Paragraph: We keep asking better questions and make room for new e?",
+          "selector": "[data-cms=\"field-150\"]",
           "type": "text",
           "value": "We keep asking better questions and make room for new evidence."
         },
         {
-          "id": "field-17",
-          "label": "17. Card/subheading: Hope",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > h3:nth-of-type(1)",
+          "id": "field-151",
+          "label": "23. Card icon/number: ♡",
+          "selector": "[data-cms=\"field-151\"]",
+          "type": "text",
+          "value": "♡"
+        },
+        {
+          "id": "field-152",
+          "label": "24. Card/subheading: Hope",
+          "selector": "[data-cms=\"field-152\"]",
           "type": "text",
           "value": "Hope"
         },
         {
-          "id": "field-18",
-          "label": "18. Paragraph: We pair optimism with practical action and long-term co?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > p:nth-of-type(1)",
+          "id": "field-153",
+          "label": "25. Paragraph: We pair optimism with practical action and long-term co?",
+          "selector": "[data-cms=\"field-153\"]",
           "type": "text",
           "value": "We pair optimism with practical action and long-term commitment."
         },
         {
-          "id": "field-19",
-          "label": "19. Section heading: Our journey",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-154",
+          "label": "26. Small label: Growing with purpose",
+          "selector": "[data-cms=\"field-154\"]",
+          "type": "text",
+          "value": "Growing with purpose"
+        },
+        {
+          "id": "field-155",
+          "label": "27. Section heading: Our journey",
+          "selector": "[data-cms=\"field-155\"]",
           "type": "text",
           "value": "Our journey"
         },
         {
-          "id": "field-20",
-          "label": "20. Card/subheading: Families found one another",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-156",
+          "label": "28. Card/subheading: Families found one another",
+          "selector": "[data-cms=\"field-156\"]",
           "type": "text",
           "value": "Families found one another"
         },
         {
-          "id": "field-21",
-          "label": "21. Paragraph: Early connections revealed a shared need for reliable i?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-157",
+          "label": "29. Paragraph: Early connections revealed a shared need for reliable i?",
+          "selector": "[data-cms=\"field-157\"]",
           "type": "text",
           "value": "Early connections revealed a shared need for reliable information, belonging and a coordinated voice."
         },
         {
-          "id": "field-22",
-          "label": "22. Card/subheading: A foundation took shape",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > h3:nth-of-type(1)",
+          "id": "field-158",
+          "label": "30. Card/subheading: A foundation took shape",
+          "selector": "[data-cms=\"field-158\"]",
           "type": "text",
           "value": "A foundation took shape"
         },
         {
-          "id": "field-23",
-          "label": "23. Paragraph: Community priorities became a practical mission spannin?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+          "id": "field-159",
+          "label": "31. Paragraph: Community priorities became a practical mission spannin?",
+          "selector": "[data-cms=\"field-159\"]",
           "type": "text",
           "value": "Community priorities became a practical mission spanning support, education, advocacy and research."
         },
         {
-          "id": "field-24",
-          "label": "24. Card/subheading: A global network is growing",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > h3:nth-of-type(1)",
+          "id": "field-160",
+          "label": "32. Card/subheading: A global network is growing",
+          "selector": "[data-cms=\"field-160\"]",
           "type": "text",
           "value": "A global network is growing"
         },
         {
-          "id": "field-25",
-          "label": "25. Paragraph: Families and professionals across countries are contrib?",
-          "selector": "#main > section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+          "id": "field-161",
+          "label": "33. Paragraph: Families and professionals across countries are contrib?",
+          "selector": "[data-cms=\"field-161\"]",
           "type": "text",
           "value": "Families and professionals across countries are contributing knowledge and widening possibilities for the future."
         },
         {
-          "id": "field-26",
-          "label": "26. Section heading: Community-led leadership",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-162",
+          "label": "34. Small label: People behind the mission",
+          "selector": "[data-cms=\"field-162\"]",
+          "type": "text",
+          "value": "People behind the mission"
+        },
+        {
+          "id": "field-163",
+          "label": "35. Section heading: Community-led leadership",
+          "selector": "[data-cms=\"field-163\"]",
           "type": "text",
           "value": "Community-led leadership"
         },
         {
-          "id": "field-27",
-          "label": "27. Paragraph: Replace these starter profiles with the foundation's co?",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-164",
+          "label": "36. Paragraph: Replace these starter profiles with the foundation's co?",
+          "selector": "[data-cms=\"field-164\"]",
           "type": "text",
           "value": "Replace these starter profiles with the foundation's confirmed board and advisory team before launch."
         },
         {
-          "id": "field-28",
-          "label": "28. Card/subheading: Family Advocate",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-165",
+          "label": "37. Avatar initials: FA",
+          "selector": "[data-cms=\"field-165\"]",
+          "type": "text",
+          "value": "FA"
+        },
+        {
+          "id": "field-166",
+          "label": "38. Card/subheading: Family Advocate",
+          "selector": "[data-cms=\"field-166\"]",
           "type": "text",
           "value": "Family Advocate"
         },
         {
-          "id": "field-29",
-          "label": "29. Paragraph: Community leadership",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-167",
+          "label": "39. Paragraph: Community leadership",
+          "selector": "[data-cms=\"field-167\"]",
           "type": "text",
           "value": "Community leadership"
         },
         {
-          "id": "field-30",
-          "label": "30. Paragraph: Bringing lived experience into every program and decisi?",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(2)",
+          "id": "field-168",
+          "label": "40. Paragraph: Bringing lived experience into every program and decisi?",
+          "selector": "[data-cms=\"field-168\"]",
           "type": "text",
           "value": "Bringing lived experience into every program and decision."
         },
         {
-          "id": "field-31",
-          "label": "31. Card/subheading: Scientific Advisor",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > h3:nth-of-type(1)",
+          "id": "field-169",
+          "label": "41. Avatar initials: SA",
+          "selector": "[data-cms=\"field-169\"]",
+          "type": "text",
+          "value": "SA"
+        },
+        {
+          "id": "field-170",
+          "label": "42. Card/subheading: Scientific Advisor",
+          "selector": "[data-cms=\"field-170\"]",
           "type": "text",
           "value": "Scientific Advisor"
         },
         {
-          "id": "field-32",
-          "label": "32. Paragraph: Research guidance",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+          "id": "field-171",
+          "label": "43. Paragraph: Research guidance",
+          "selector": "[data-cms=\"field-171\"]",
           "type": "text",
           "value": "Research guidance"
         },
         {
-          "id": "field-33",
-          "label": "33. Paragraph: Helping translate scientific progress into clear commun?",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(2)",
+          "id": "field-172",
+          "label": "44. Paragraph: Helping translate scientific progress into clear commun?",
+          "selector": "[data-cms=\"field-172\"]",
           "type": "text",
           "value": "Helping translate scientific progress into clear community knowledge."
         },
         {
-          "id": "field-34",
-          "label": "34. Card/subheading: Program Advisor",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > h3:nth-of-type(1)",
+          "id": "field-173",
+          "label": "45. Avatar initials: PA",
+          "selector": "[data-cms=\"field-173\"]",
+          "type": "text",
+          "value": "PA"
+        },
+        {
+          "id": "field-174",
+          "label": "46. Card/subheading: Program Advisor",
+          "selector": "[data-cms=\"field-174\"]",
           "type": "text",
           "value": "Program Advisor"
         },
         {
-          "id": "field-35",
-          "label": "35. Paragraph: Partnerships",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+          "id": "field-175",
+          "label": "47. Paragraph: Partnerships",
+          "selector": "[data-cms=\"field-175\"]",
           "type": "text",
           "value": "Partnerships"
         },
         {
-          "id": "field-36",
-          "label": "36. Paragraph: Building collaborations that turn shared intent into us?",
-          "selector": "#main > section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(2)",
+          "id": "field-176",
+          "label": "48. Paragraph: Building collaborations that turn shared intent into us?",
+          "selector": "[data-cms=\"field-176\"]",
           "type": "text",
           "value": "Building collaborations that turn shared intent into useful action."
         }
@@ -643,219 +776,289 @@
       "title": "Resources",
       "fields": [
         {
-          "id": "field-1",
-          "label": "1. Main heading: Resources",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
+          "id": "field-112",
+          "label": "1. Small label: Knowledge you can use",
+          "selector": "[data-cms=\"field-112\"]",
+          "type": "text",
+          "value": "Knowledge you can use"
+        },
+        {
+          "id": "field-113",
+          "label": "2. Main heading: Resources",
+          "selector": "[data-cms=\"field-113\"]",
           "type": "text",
           "value": "Resources"
         },
         {
-          "id": "field-2",
-          "label": "2. Paragraph: Practical information for families, educators, clinicia?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-114",
+          "label": "3. Paragraph: Practical information for families, educators, clinicia?",
+          "selector": "[data-cms=\"field-114\"]",
           "type": "text",
           "value": "Practical information for families, educators, clinicians and researchers — organized to help you find a useful next step."
         },
         {
-          "id": "field-3",
-          "label": "3. Section heading: Start where you are",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-115",
+          "label": "4. Small label: Resource library",
+          "selector": "[data-cms=\"field-115\"]",
+          "type": "text",
+          "value": "Resource library"
+        },
+        {
+          "id": "field-116",
+          "label": "5. Section heading: Start where you are",
+          "selector": "[data-cms=\"field-116\"]",
           "type": "text",
           "value": "Start where you are"
         },
         {
-          "id": "field-4",
-          "label": "4. Paragraph: These starter resources can be replaced with the founda?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-117",
+          "label": "6. Paragraph: These starter resources can be replaced with the founda?",
+          "selector": "[data-cms=\"field-117\"]",
           "type": "text",
           "value": "These starter resources can be replaced with the foundation's reviewed documents, videos and trusted external links."
         },
         {
-          "id": "field-5",
-          "label": "5. Card/subheading: Newly diagnosed guide",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-118",
+          "label": "7. Card icon/number: ⌁",
+          "selector": "[data-cms=\"field-118\"]",
+          "type": "text",
+          "value": "⌁"
+        },
+        {
+          "id": "field-119",
+          "label": "8. Card/subheading: Newly diagnosed guide",
+          "selector": "[data-cms=\"field-119\"]",
           "type": "text",
           "value": "Newly diagnosed guide"
         },
         {
-          "id": "field-6",
-          "label": "6. Paragraph: A concise guide to first appointments, record keeping, ?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-120",
+          "label": "9. Paragraph: A concise guide to first appointments, record keeping, ?",
+          "selector": "[data-cms=\"field-120\"]",
           "type": "text",
           "value": "A concise guide to first appointments, record keeping, support and questions families may wish to ask."
         },
         {
-          "id": "field-7",
-          "label": "7. Button/link: Read the guide →",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > a:nth-of-type(1)",
+          "id": "field-121",
+          "label": "10. Button/link: Read the guide →",
+          "selector": "[data-cms=\"field-121\"]",
           "type": "text",
           "value": "Read the guide →"
         },
         {
-          "id": "field-8",
-          "label": "8. Card/subheading: Clinical overview",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > h3:nth-of-type(1)",
+          "id": "field-122",
+          "label": "11. Card icon/number: ▤",
+          "selector": "[data-cms=\"field-122\"]",
+          "type": "text",
+          "value": "▤"
+        },
+        {
+          "id": "field-123",
+          "label": "12. Card/subheading: Clinical overview",
+          "selector": "[data-cms=\"field-123\"]",
           "type": "text",
           "value": "Clinical overview"
         },
         {
-          "id": "field-9",
-          "label": "9. Paragraph: A plain-language summary designed to support conversati?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+          "id": "field-124",
+          "label": "13. Paragraph: A plain-language summary designed to support conversati?",
+          "selector": "[data-cms=\"field-124\"]",
           "type": "text",
           "value": "A plain-language summary designed to support conversations with healthcare and therapy teams."
         },
         {
-          "id": "field-10",
-          "label": "10. Button/link: Request information →",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > a:nth-of-type(1)",
+          "id": "field-125",
+          "label": "14. Button/link: Request information →",
+          "selector": "[data-cms=\"field-125\"]",
           "type": "text",
           "value": "Request information →"
         },
         {
-          "id": "field-11",
-          "label": "11. Card/subheading: Family connection",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > h3:nth-of-type(1)",
+          "id": "field-126",
+          "label": "15. Card icon/number: ♧",
+          "selector": "[data-cms=\"field-126\"]",
+          "type": "text",
+          "value": "♧"
+        },
+        {
+          "id": "field-127",
+          "label": "16. Card/subheading: Family connection",
+          "selector": "[data-cms=\"field-127\"]",
           "type": "text",
           "value": "Family connection"
         },
         {
-          "id": "field-12",
-          "label": "12. Paragraph: Learn how the private directory helps families connect ?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+          "id": "field-128",
+          "label": "17. Paragraph: Learn how the private directory helps families connect ?",
+          "selector": "[data-cms=\"field-128\"]",
           "type": "text",
           "value": "Learn how the private directory helps families connect by interests, experience and region."
         },
         {
-          "id": "field-13",
-          "label": "13. Button/link: Join the directory →",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > a:nth-of-type(1)",
+          "id": "field-129",
+          "label": "18. Button/link: Join the directory →",
+          "selector": "[data-cms=\"field-129\"]",
           "type": "text",
           "value": "Join the directory →"
         },
         {
-          "id": "field-14",
-          "label": "14. Card/subheading: Education planning",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > h3:nth-of-type(1)",
+          "id": "field-130",
+          "label": "19. Card icon/number: ✎",
+          "selector": "[data-cms=\"field-130\"]",
+          "type": "text",
+          "value": "✎"
+        },
+        {
+          "id": "field-131",
+          "label": "20. Card/subheading: Education planning",
+          "selector": "[data-cms=\"field-131\"]",
           "type": "text",
           "value": "Education planning"
         },
         {
-          "id": "field-15",
-          "label": "15. Paragraph: Prompts for sharing strengths, communication needs and ?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > p:nth-of-type(1)",
+          "id": "field-132",
+          "label": "21. Paragraph: Prompts for sharing strengths, communication needs and ?",
+          "selector": "[data-cms=\"field-132\"]",
           "type": "text",
           "value": "Prompts for sharing strengths, communication needs and helpful supports with an education team."
         },
         {
-          "id": "field-16",
-          "label": "16. Button/link: Ask a question →",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > a:nth-of-type(1)",
+          "id": "field-133",
+          "label": "22. Button/link: Ask a question →",
+          "selector": "[data-cms=\"field-133\"]",
           "type": "text",
           "value": "Ask a question →"
         },
         {
-          "id": "field-17",
-          "label": "17. Card/subheading: Research participation",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(5) > h3:nth-of-type(1)",
+          "id": "field-134",
+          "label": "23. Card icon/number: ⌕",
+          "selector": "[data-cms=\"field-134\"]",
+          "type": "text",
+          "value": "⌕"
+        },
+        {
+          "id": "field-135",
+          "label": "24. Card/subheading: Research participation",
+          "selector": "[data-cms=\"field-135\"]",
           "type": "text",
           "value": "Research participation"
         },
         {
-          "id": "field-18",
-          "label": "18. Paragraph: What informed consent, ethics review and voluntary part?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(5) > p:nth-of-type(1)",
+          "id": "field-136",
+          "label": "25. Paragraph: What informed consent, ethics review and voluntary part?",
+          "selector": "[data-cms=\"field-136\"]",
           "type": "text",
           "value": "What informed consent, ethics review and voluntary participation should mean for families."
         },
         {
-          "id": "field-19",
-          "label": "19. Button/link: See research updates →",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(5) > a:nth-of-type(1)",
+          "id": "field-137",
+          "label": "26. Button/link: See research updates →",
+          "selector": "[data-cms=\"field-137\"]",
           "type": "text",
           "value": "See research updates →"
         },
         {
-          "id": "field-20",
-          "label": "20. Card/subheading: Webinars and events",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(6) > h3:nth-of-type(1)",
+          "id": "field-138",
+          "label": "27. Card icon/number: ◉",
+          "selector": "[data-cms=\"field-138\"]",
+          "type": "text",
+          "value": "◉"
+        },
+        {
+          "id": "field-139",
+          "label": "28. Card/subheading: Webinars and events",
+          "selector": "[data-cms=\"field-139\"]",
           "type": "text",
           "value": "Webinars and events"
         },
         {
-          "id": "field-21",
-          "label": "21. Paragraph: Community conversations, expert presentations and recor?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(6) > p:nth-of-type(1)",
+          "id": "field-140",
+          "label": "29. Paragraph: Community conversations, expert presentations and recor?",
+          "selector": "[data-cms=\"field-140\"]",
           "type": "text",
           "value": "Community conversations, expert presentations and recorded learning sessions."
         },
         {
-          "id": "field-22",
-          "label": "22. Button/link: View events →",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(6) > a:nth-of-type(1)",
+          "id": "field-141",
+          "label": "30. Button/link: View events →",
+          "selector": "[data-cms=\"field-141\"]",
           "type": "text",
           "value": "View events →"
         },
         {
-          "id": "field-23",
-          "label": "23. Section heading: Choose sources carefully",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > article:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-142",
+          "label": "31. Small label: Evaluating information",
+          "selector": "[data-cms=\"field-142\"]",
+          "type": "text",
+          "value": "Evaluating information"
+        },
+        {
+          "id": "field-143",
+          "label": "32. Section heading: Choose sources carefully",
+          "selector": "[data-cms=\"field-143\"]",
           "type": "text",
           "value": "Choose sources carefully"
         },
         {
-          "id": "field-24",
-          "label": "24. Paragraph: Rare-condition information can change quickly and quali?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-144",
+          "label": "33. Paragraph: Rare-condition information can change quickly and quali?",
+          "selector": "[data-cms=\"field-144\"]",
           "type": "text",
           "value": "Rare-condition information can change quickly and quality varies. Prefer resources that identify their authors, cite evidence, show a review date and separate established knowledge from emerging ideas."
         },
         {
-          "id": "field-25",
-          "label": "25. List item: Check when the resource was last reviewed.",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > article:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+          "id": "field-145",
+          "label": "34. List item: Check when the resource was last reviewed.",
+          "selector": "[data-cms=\"field-145\"]",
           "type": "text",
           "value": "Check when the resource was last reviewed."
         },
         {
-          "id": "field-26",
-          "label": "26. List item: Discuss medical claims with a qualified clinician.",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > article:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+          "id": "field-146",
+          "label": "35. List item: Discuss medical claims with a qualified clinician.",
+          "selector": "[data-cms=\"field-146\"]",
           "type": "text",
           "value": "Discuss medical claims with a qualified clinician."
         },
         {
-          "id": "field-27",
-          "label": "27. List item: Be cautious of products or treatments promising guarant?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > article:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+          "id": "field-147",
+          "label": "36. List item: Be cautious of products or treatments promising guarant?",
+          "selector": "[data-cms=\"field-147\"]",
           "type": "text",
           "value": "Be cautious of products or treatments promising guaranteed results."
         },
         {
-          "id": "field-28",
-          "label": "28. List item: Protect personal and genetic information when joining o?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > article:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+          "id": "field-148",
+          "label": "37. List item: Protect personal and genetic information when joining o?",
+          "selector": "[data-cms=\"field-148\"]",
           "type": "text",
           "value": "Protect personal and genetic information when joining online services."
         },
         {
-          "id": "field-29",
-          "label": "29. Card/subheading: Tell us what would help.",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > aside:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-149",
+          "label": "38. Small label: Can’t find it?",
+          "selector": "[data-cms=\"field-149\"]",
+          "type": "text",
+          "value": "Can’t find it?"
+        },
+        {
+          "id": "field-150",
+          "label": "39. Card/subheading: Tell us what would help.",
+          "selector": "[data-cms=\"field-150\"]",
           "type": "text",
           "value": "Tell us what would help."
         },
         {
-          "id": "field-30",
-          "label": "30. Paragraph: Family questions guide future resources. Send a request?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > aside:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-151",
+          "label": "40. Paragraph: Family questions guide future resources. Send a request?",
+          "selector": "[data-cms=\"field-151\"]",
           "type": "text",
           "value": "Family questions guide future resources. Send a request and we will use it to improve the library."
         },
         {
-          "id": "field-31",
-          "label": "31. Button/link: Request a resource",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > aside:nth-of-type(1) > a:nth-of-type(1)",
+          "id": "field-152",
+          "label": "41. Button/link: Request a resource",
+          "selector": "[data-cms=\"field-152\"]",
           "type": "text",
           "value": "Request a resource"
         }
@@ -865,67 +1068,207 @@
       "title": "Register",
       "fields": [
         {
-          "id": "field-1",
-          "label": "1. Main heading: Connection starts here.",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
+          "id": "field-70",
+          "label": "1. Small label: Join the community",
+          "selector": "[data-cms=\"field-70\"]",
+          "type": "text",
+          "value": "Join the community"
+        },
+        {
+          "id": "field-71",
+          "label": "2. Main heading: Connection starts here.",
+          "selector": "[data-cms=\"field-71\"]",
           "type": "text",
           "value": "Connection starts here."
         },
         {
-          "id": "field-2",
-          "label": "2. Paragraph: Register your interest in the family directory, communi?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-72",
+          "label": "3. Paragraph: Register your interest in the family directory, communi?",
+          "selector": "[data-cms=\"field-72\"]",
           "type": "text",
           "value": "Register your interest in the family directory, community updates and responsible research opportunities."
         },
         {
-          "id": "field-3",
-          "label": "3. Section heading: Community registration",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-73",
+          "label": "4. Section heading: Community registration",
+          "selector": "[data-cms=\"field-73\"]",
           "type": "text",
           "value": "Community registration"
         },
         {
-          "id": "field-4",
-          "label": "4. Paragraph: Only request information the foundation genuinely needs?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-74",
+          "label": "5. Paragraph: Only request information the foundation genuinely needs?",
+          "selector": "[data-cms=\"field-74\"]",
           "type": "text",
           "value": "Only request information the foundation genuinely needs, and publish a full privacy policy before launch."
         },
         {
-          "id": "field-5",
-          "label": "5. Card/subheading: What registration can unlock",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-75",
+          "label": "6. Form label: First name",
+          "selector": "[data-cms=\"field-75\"]",
+          "type": "text",
+          "value": "First name"
+        },
+        {
+          "id": "field-76",
+          "label": "7. Form label: Last name",
+          "selector": "[data-cms=\"field-76\"]",
+          "type": "text",
+          "value": "Last name"
+        },
+        {
+          "id": "field-77",
+          "label": "8. Form label: Email",
+          "selector": "[data-cms=\"field-77\"]",
+          "type": "text",
+          "value": "Email"
+        },
+        {
+          "id": "field-78",
+          "label": "9. Form label: Country",
+          "selector": "[data-cms=\"field-78\"]",
+          "type": "text",
+          "value": "Country"
+        },
+        {
+          "id": "field-79",
+          "label": "10. Form label: Your connection to WDR5",
+          "selector": "[data-cms=\"field-79\"]",
+          "type": "text",
+          "value": "Your connection to WDR5"
+        },
+        {
+          "id": "field-80",
+          "label": "11. Dropdown option: Choose one",
+          "selector": "[data-cms=\"field-80\"]",
+          "type": "text",
+          "value": "Choose one"
+        },
+        {
+          "id": "field-81",
+          "label": "12. Dropdown option: Parent or caregiver",
+          "selector": "[data-cms=\"field-81\"]",
+          "type": "text",
+          "value": "Parent or caregiver"
+        },
+        {
+          "id": "field-82",
+          "label": "13. Dropdown option: Person with a WDR5-related condition",
+          "selector": "[data-cms=\"field-82\"]",
+          "type": "text",
+          "value": "Person with a WDR5-related condition"
+        },
+        {
+          "id": "field-83",
+          "label": "14. Dropdown option: Family member",
+          "selector": "[data-cms=\"field-83\"]",
+          "type": "text",
+          "value": "Family member"
+        },
+        {
+          "id": "field-84",
+          "label": "15. Dropdown option: Clinician or therapist",
+          "selector": "[data-cms=\"field-84\"]",
+          "type": "text",
+          "value": "Clinician or therapist"
+        },
+        {
+          "id": "field-85",
+          "label": "16. Dropdown option: Researcher",
+          "selector": "[data-cms=\"field-85\"]",
+          "type": "text",
+          "value": "Researcher"
+        },
+        {
+          "id": "field-86",
+          "label": "17. Dropdown option: Supporter or advocate",
+          "selector": "[data-cms=\"field-86\"]",
+          "type": "text",
+          "value": "Supporter or advocate"
+        },
+        {
+          "id": "field-87",
+          "label": "18. Form label: Anything you would like us to know? <span style=\"font-w?",
+          "selector": "[data-cms=\"field-87\"]",
+          "type": "html",
+          "value": "Anything you would like us to know? <span style=\"font-weight:400\">(optional)</span>"
+        },
+        {
+          "id": "field-88",
+          "label": "19. Form label: <input type=\"checkbox\" name=\"directory\"><span>I am inte?",
+          "selector": "[data-cms=\"field-88\"]",
+          "type": "html",
+          "value": "<input type=\"checkbox\" name=\"directory\"><span>I am interested in a private family connection directory.</span>"
+        },
+        {
+          "id": "field-89",
+          "label": "20. Form label: <input type=\"checkbox\" name=\"newsletter\" checked><span>?",
+          "selector": "[data-cms=\"field-89\"]",
+          "type": "html",
+          "value": "<input type=\"checkbox\" name=\"newsletter\" checked><span>I would like to receive foundation news, events and research updates.</span>"
+        },
+        {
+          "id": "field-90",
+          "label": "21. Form label: <input type=\"checkbox\" name=\"consent\" required><span>I ?",
+          "selector": "[data-cms=\"field-90\"]",
+          "type": "html",
+          "value": "<input type=\"checkbox\" name=\"consent\" required><span>I agree that the foundation may use this information to respond to my registration. I understand that this is a preview until a live privacy policy and form service are connected.</span>"
+        },
+        {
+          "id": "field-91",
+          "label": "22. Button: Submit registration",
+          "selector": "[data-cms=\"field-91\"]",
+          "type": "text",
+          "value": "Submit registration"
+        },
+        {
+          "id": "field-92",
+          "label": "23. Small label: A welcoming network",
+          "selector": "[data-cms=\"field-92\"]",
+          "type": "text",
+          "value": "A welcoming network"
+        },
+        {
+          "id": "field-93",
+          "label": "24. Card/subheading: What registration can unlock",
+          "selector": "[data-cms=\"field-93\"]",
           "type": "text",
           "value": "What registration can unlock"
         },
         {
-          "id": "field-6",
-          "label": "6. List item: Foundation and community updates",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)",
+          "id": "field-94",
+          "label": "25. List item: Foundation and community updates",
+          "selector": "[data-cms=\"field-94\"]",
           "type": "text",
           "value": "Foundation and community updates"
         },
         {
-          "id": "field-7",
-          "label": "7. List item: Invitations to webinars and gatherings",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)",
+          "id": "field-95",
+          "label": "26. List item: Invitations to webinars and gatherings",
+          "selector": "[data-cms=\"field-95\"]",
           "type": "text",
           "value": "Invitations to webinars and gatherings"
         },
         {
-          "id": "field-8",
-          "label": "8. List item: Family-to-family connection opportunities",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)",
+          "id": "field-96",
+          "label": "27. List item: Family-to-family connection opportunities",
+          "selector": "[data-cms=\"field-96\"]",
           "type": "text",
           "value": "Family-to-family connection opportunities"
         },
         {
-          "id": "field-9",
-          "label": "9. List item: Information about ethically reviewed research",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)",
+          "id": "field-97",
+          "label": "28. List item: Information about ethically reviewed research",
+          "selector": "[data-cms=\"field-97\"]",
           "type": "text",
           "value": "Information about ethically reviewed research"
+        },
+        {
+          "id": "field-98",
+          "label": "29. Notice: <strong>Privacy matters.</strong> Genetic and health in?",
+          "selector": "[data-cms=\"field-98\"]",
+          "type": "html",
+          "value": "<strong>Privacy matters.</strong> Genetic and health information is sensitive. Before launch, connect a secure form service, define data retention and publish clear consent and privacy notices."
         }
       ]
     },
@@ -933,163 +1276,240 @@
       "title": "Donate",
       "fields": [
         {
-          "id": "field-1",
-          "label": "1. Main heading: Help turn hope into progress.",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
+          "id": "field-96",
+          "label": "1. Small label: Support the mission",
+          "selector": "[data-cms=\"field-96\"]",
+          "type": "text",
+          "value": "Support the mission"
+        },
+        {
+          "id": "field-97",
+          "label": "2. Main heading: Help turn hope into progress.",
+          "selector": "[data-cms=\"field-97\"]",
           "type": "text",
           "value": "Help turn hope into progress."
         },
         {
-          "id": "field-2",
-          "label": "2. Paragraph: Your support can strengthen community programs, trusted?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-98",
+          "label": "3. Paragraph: Your support can strengthen community programs, trusted?",
+          "selector": "[data-cms=\"field-98\"]",
           "type": "text",
           "value": "Your support can strengthen community programs, trusted information and research collaboration."
         },
         {
-          "id": "field-3",
-          "label": "3. Section heading: Every contribution matters",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-99",
+          "label": "4. Small label: Choose your impact",
+          "selector": "[data-cms=\"field-99\"]",
+          "type": "text",
+          "value": "Choose your impact"
+        },
+        {
+          "id": "field-100",
+          "label": "5. Section heading: Every contribution matters",
+          "selector": "[data-cms=\"field-100\"]",
           "type": "text",
           "value": "Every contribution matters"
         },
         {
-          "id": "field-4",
-          "label": "4. Paragraph: These example levels are ready to connect to the founda?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-101",
+          "label": "6. Paragraph: These example levels are ready to connect to the founda?",
+          "selector": "[data-cms=\"field-101\"]",
           "type": "text",
           "value": "These example levels are ready to connect to the foundation's approved donation platform."
         },
         {
-          "id": "field-5",
-          "label": "5. Card/subheading: Connect",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-102",
+          "label": "7. Card/subheading: Connect",
+          "selector": "[data-cms=\"field-102\"]",
           "type": "text",
           "value": "Connect"
         },
         {
-          "id": "field-6",
-          "label": "6. Paragraph: Helps welcome a newly diagnosed family with accessible ?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-103",
+          "label": "8. Donation amount: $25",
+          "selector": "[data-cms=\"field-103\"]",
+          "type": "text",
+          "value": "$25"
+        },
+        {
+          "id": "field-104",
+          "label": "9. Paragraph: Helps welcome a newly diagnosed family with accessible ?",
+          "selector": "[data-cms=\"field-104\"]",
           "type": "text",
           "value": "Helps welcome a newly diagnosed family with accessible information."
         },
         {
-          "id": "field-7",
-          "label": "7. Button/link: Choose $25",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > a:nth-of-type(1)",
+          "id": "field-105",
+          "label": "10. Button/link: Choose $25",
+          "selector": "[data-cms=\"field-105\"]",
           "type": "text",
-          "value": "Choose £25"
+          "value": "Choose $25"
         },
         {
-          "id": "field-8",
-          "label": "8. Card/subheading: Support",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > h3:nth-of-type(1)",
+          "id": "field-106",
+          "label": "11. Card/subheading: Support",
+          "selector": "[data-cms=\"field-106\"]",
           "type": "text",
           "value": "Support"
         },
         {
-          "id": "field-9",
-          "label": "9. Paragraph: Supports community resources and family connection prog?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+          "id": "field-107",
+          "label": "12. Donation amount: $50",
+          "selector": "[data-cms=\"field-107\"]",
+          "type": "text",
+          "value": "$50"
+        },
+        {
+          "id": "field-108",
+          "label": "13. Paragraph: Supports community resources and family connection prog?",
+          "selector": "[data-cms=\"field-108\"]",
           "type": "text",
           "value": "Supports community resources and family connection programs."
         },
         {
-          "id": "field-10",
-          "label": "10. Button/link: Choose $50",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > a:nth-of-type(1)",
+          "id": "field-109",
+          "label": "14. Button/link: Choose $50",
+          "selector": "[data-cms=\"field-109\"]",
           "type": "text",
-          "value": "Choose £50"
+          "value": "Choose $50"
         },
         {
-          "id": "field-11",
-          "label": "11. Card/subheading: Advance",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > h3:nth-of-type(1)",
+          "id": "field-110",
+          "label": "15. Card/subheading: Advance",
+          "selector": "[data-cms=\"field-110\"]",
           "type": "text",
           "value": "Advance"
         },
         {
-          "id": "field-12",
-          "label": "12. Paragraph: Helps build the infrastructure that makes meaningful re?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+          "id": "field-111",
+          "label": "16. Donation amount: $100",
+          "selector": "[data-cms=\"field-111\"]",
+          "type": "text",
+          "value": "$100"
+        },
+        {
+          "id": "field-112",
+          "label": "17. Paragraph: Helps build the infrastructure that makes meaningful re?",
+          "selector": "[data-cms=\"field-112\"]",
           "type": "text",
           "value": "Helps build the infrastructure that makes meaningful research possible."
         },
         {
-          "id": "field-13",
-          "label": "13. Button/link: Choose $100",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > a:nth-of-type(1)",
+          "id": "field-113",
+          "label": "18. Button/link: Choose $100",
+          "selector": "[data-cms=\"field-113\"]",
           "type": "text",
-          "value": "Choose £100"
+          "value": "Choose $100"
         },
         {
-          "id": "field-14",
-          "label": "14. Card/subheading: Transform",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > h3:nth-of-type(1)",
+          "id": "field-114",
+          "label": "19. Card/subheading: Transform",
+          "selector": "[data-cms=\"field-114\"]",
           "type": "text",
           "value": "Transform"
         },
         {
-          "id": "field-15",
-          "label": "15. Paragraph: Talk with the foundation about major gifts, sponsorship?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > p:nth-of-type(1)",
+          "id": "field-115",
+          "label": "20. Donation amount: Custom",
+          "selector": "[data-cms=\"field-115\"]",
+          "type": "text",
+          "value": "Custom"
+        },
+        {
+          "id": "field-116",
+          "label": "21. Paragraph: Talk with the foundation about major gifts, sponsorship?",
+          "selector": "[data-cms=\"field-116\"]",
           "type": "text",
           "value": "Talk with the foundation about major gifts, sponsorship or partnerships."
         },
         {
-          "id": "field-16",
-          "label": "16. Button/link: Contact us",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(4) > a:nth-of-type(1)",
+          "id": "field-117",
+          "label": "22. Button/link: Contact us",
+          "selector": "[data-cms=\"field-117\"]",
           "type": "text",
           "value": "Contact us"
         },
         {
-          "id": "field-17",
-          "label": "17. Section heading: One mission, three priorities",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-118",
+          "label": "23. Notice: <strong>Launch note:</strong> No payment processor is c?",
+          "selector": "[data-cms=\"field-118\"]",
+          "type": "html",
+          "value": "<strong>Launch note:</strong> No payment processor is connected in this static preview. Link these buttons to an approved nonprofit platform such as Stripe, PayPal Giving Fund or your registered charity provider before accepting donations."
+        },
+        {
+          "id": "field-119",
+          "label": "24. Small label: Where support goes",
+          "selector": "[data-cms=\"field-119\"]",
+          "type": "text",
+          "value": "Where support goes"
+        },
+        {
+          "id": "field-120",
+          "label": "25. Section heading: One mission, three priorities",
+          "selector": "[data-cms=\"field-120\"]",
           "type": "text",
           "value": "One mission, three priorities"
         },
         {
-          "id": "field-18",
-          "label": "18. Card/subheading: Community",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-121",
+          "label": "26. Card icon/number: ♧",
+          "selector": "[data-cms=\"field-121\"]",
+          "type": "text",
+          "value": "♧"
+        },
+        {
+          "id": "field-122",
+          "label": "27. Card/subheading: Community",
+          "selector": "[data-cms=\"field-122\"]",
           "type": "text",
           "value": "Community"
         },
         {
-          "id": "field-19",
-          "label": "19. Paragraph: Welcoming families, reducing isolation and making usefu?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-123",
+          "label": "28. Paragraph: Welcoming families, reducing isolation and making usefu?",
+          "selector": "[data-cms=\"field-123\"]",
           "type": "text",
           "value": "Welcoming families, reducing isolation and making useful connection easier."
         },
         {
-          "id": "field-20",
-          "label": "20. Card/subheading: Knowledge",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > h3:nth-of-type(1)",
+          "id": "field-124",
+          "label": "29. Card icon/number: ▤",
+          "selector": "[data-cms=\"field-124\"]",
+          "type": "text",
+          "value": "▤"
+        },
+        {
+          "id": "field-125",
+          "label": "30. Card/subheading: Knowledge",
+          "selector": "[data-cms=\"field-125\"]",
           "type": "text",
           "value": "Knowledge"
         },
         {
-          "id": "field-21",
-          "label": "21. Paragraph: Turning complex information into clear, practical and r?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(2) > p:nth-of-type(1)",
+          "id": "field-126",
+          "label": "31. Paragraph: Turning complex information into clear, practical and r?",
+          "selector": "[data-cms=\"field-126\"]",
           "type": "text",
           "value": "Turning complex information into clear, practical and reviewed resources."
         },
         {
-          "id": "field-22",
-          "label": "22. Card/subheading: Research",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > h3:nth-of-type(1)",
+          "id": "field-127",
+          "label": "32. Card icon/number: ⌕",
+          "selector": "[data-cms=\"field-127\"]",
+          "type": "text",
+          "value": "⌕"
+        },
+        {
+          "id": "field-128",
+          "label": "33. Card/subheading: Research",
+          "selector": "[data-cms=\"field-128\"]",
           "type": "text",
           "value": "Research"
         },
         {
-          "id": "field-23",
-          "label": "23. Paragraph: Supporting collaboration, readiness and family-informed?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > article:nth-of-type(3) > p:nth-of-type(1)",
+          "id": "field-129",
+          "label": "34. Paragraph: Supporting collaboration, readiness and family-informed?",
+          "selector": "[data-cms=\"field-129\"]",
           "type": "text",
           "value": "Supporting collaboration, readiness and family-informed scientific progress."
         }
@@ -1099,39 +1519,221 @@
       "title": "Contact",
       "fields": [
         {
-          "id": "field-1",
-          "label": "1. Main heading: Contact us",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
+          "id": "field-70",
+          "label": "1. Small label: We are listening",
+          "selector": "[data-cms=\"field-70\"]",
+          "type": "text",
+          "value": "We are listening"
+        },
+        {
+          "id": "field-71",
+          "label": "2. Main heading: Contact us",
+          "selector": "[data-cms=\"field-71\"]",
           "type": "text",
           "value": "Contact us"
         },
         {
-          "id": "field-2",
-          "label": "2. Paragraph: Questions, ideas and introductions are welcome. Choose ?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-72",
+          "label": "3. Paragraph: Questions, ideas and introductions are welcome. Choose ?",
+          "selector": "[data-cms=\"field-72\"]",
           "type": "text",
           "value": "Questions, ideas and introductions are welcome. Choose the topic that best fits and the right person can follow up."
         },
         {
-          "id": "field-3",
-          "label": "3. Section heading: Send a message",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-73",
+          "label": "4. Section heading: Send a message",
+          "selector": "[data-cms=\"field-73\"]",
           "type": "text",
           "value": "Send a message"
         },
         {
-          "id": "field-4",
-          "label": "4. Paragraph: Connect a secure form endpoint before launch to receive?",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-74",
+          "label": "5. Paragraph: Connect a secure form endpoint before launch to receive?",
+          "selector": "[data-cms=\"field-74\"]",
           "type": "text",
           "value": "Connect a secure form endpoint before launch to receive these submissions."
         },
         {
-          "id": "field-5",
-          "label": "5. Card/subheading: Find the right route",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > aside:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+          "id": "field-75",
+          "label": "6. Form label: Name",
+          "selector": "[data-cms=\"field-75\"]",
+          "type": "text",
+          "value": "Name"
+        },
+        {
+          "id": "field-76",
+          "label": "7. Form label: Email",
+          "selector": "[data-cms=\"field-76\"]",
+          "type": "text",
+          "value": "Email"
+        },
+        {
+          "id": "field-77",
+          "label": "8. Form label: Topic",
+          "selector": "[data-cms=\"field-77\"]",
+          "type": "text",
+          "value": "Topic"
+        },
+        {
+          "id": "field-78",
+          "label": "9. Dropdown option: Choose a topic",
+          "selector": "[data-cms=\"field-78\"]",
+          "type": "text",
+          "value": "Choose a topic"
+        },
+        {
+          "id": "field-79",
+          "label": "10. Dropdown option: Family support",
+          "selector": "[data-cms=\"field-79\"]",
+          "type": "text",
+          "value": "Family support"
+        },
+        {
+          "id": "field-80",
+          "label": "11. Dropdown option: Clinical question",
+          "selector": "[data-cms=\"field-80\"]",
+          "type": "text",
+          "value": "Clinical question"
+        },
+        {
+          "id": "field-81",
+          "label": "12. Dropdown option: Research collaboration",
+          "selector": "[data-cms=\"field-81\"]",
+          "type": "text",
+          "value": "Research collaboration"
+        },
+        {
+          "id": "field-82",
+          "label": "13. Dropdown option: Donation or partnership",
+          "selector": "[data-cms=\"field-82\"]",
+          "type": "text",
+          "value": "Donation or partnership"
+        },
+        {
+          "id": "field-83",
+          "label": "14. Dropdown option: Media",
+          "selector": "[data-cms=\"field-83\"]",
+          "type": "text",
+          "value": "Media"
+        },
+        {
+          "id": "field-84",
+          "label": "15. Dropdown option: Website feedback",
+          "selector": "[data-cms=\"field-84\"]",
+          "type": "text",
+          "value": "Website feedback"
+        },
+        {
+          "id": "field-85",
+          "label": "16. Dropdown option: Other",
+          "selector": "[data-cms=\"field-85\"]",
+          "type": "text",
+          "value": "Other"
+        },
+        {
+          "id": "field-86",
+          "label": "17. Form label: Message",
+          "selector": "[data-cms=\"field-86\"]",
+          "type": "text",
+          "value": "Message"
+        },
+        {
+          "id": "field-87",
+          "label": "18. Form label: <input type=\"checkbox\" name=\"consent\" required><span>I ?",
+          "selector": "[data-cms=\"field-87\"]",
+          "type": "html",
+          "value": "<input type=\"checkbox\" name=\"consent\" required><span>I agree that the foundation may use this information to respond to my message.</span>"
+        },
+        {
+          "id": "field-88",
+          "label": "19. Button: Send message",
+          "selector": "[data-cms=\"field-88\"]",
+          "type": "text",
+          "value": "Send message"
+        },
+        {
+          "id": "field-89",
+          "label": "20. Small label: Ways to connect",
+          "selector": "[data-cms=\"field-89\"]",
+          "type": "text",
+          "value": "Ways to connect"
+        },
+        {
+          "id": "field-90",
+          "label": "21. Card/subheading: Find the right route",
+          "selector": "[data-cms=\"field-90\"]",
           "type": "text",
           "value": "Find the right route"
+        },
+        {
+          "id": "field-91",
+          "label": "22. Text: ♡",
+          "selector": "[data-cms=\"field-91\"]",
+          "type": "text",
+          "value": "♡"
+        },
+        {
+          "id": "field-92",
+          "label": "23. Bold text: Families",
+          "selector": "[data-cms=\"field-92\"]",
+          "type": "text",
+          "value": "Families"
+        },
+        {
+          "id": "field-93",
+          "label": "24. Text: Support, connection and registration questions",
+          "selector": "[data-cms=\"field-93\"]",
+          "type": "text",
+          "value": "Support, connection and registration questions"
+        },
+        {
+          "id": "field-94",
+          "label": "25. Text: ⌕",
+          "selector": "[data-cms=\"field-94\"]",
+          "type": "text",
+          "value": "⌕"
+        },
+        {
+          "id": "field-95",
+          "label": "26. Bold text: Researchers and clinicians",
+          "selector": "[data-cms=\"field-95\"]",
+          "type": "text",
+          "value": "Researchers and clinicians"
+        },
+        {
+          "id": "field-96",
+          "label": "27. Text: Collaboration, resources and study opportunities",
+          "selector": "[data-cms=\"field-96\"]",
+          "type": "text",
+          "value": "Collaboration, resources and study opportunities"
+        },
+        {
+          "id": "field-97",
+          "label": "28. Text: ✦",
+          "selector": "[data-cms=\"field-97\"]",
+          "type": "text",
+          "value": "✦"
+        },
+        {
+          "id": "field-98",
+          "label": "29. Bold text: Partners",
+          "selector": "[data-cms=\"field-98\"]",
+          "type": "text",
+          "value": "Partners"
+        },
+        {
+          "id": "field-99",
+          "label": "30. Text: Funding, sponsorship and awareness activity",
+          "selector": "[data-cms=\"field-99\"]",
+          "type": "text",
+          "value": "Funding, sponsorship and awareness activity"
+        },
+        {
+          "id": "field-100",
+          "label": "31. Notice: This form is not for urgent medical advice. Contact you?",
+          "selector": "[data-cms=\"field-100\"]",
+          "type": "text",
+          "value": "This form is not for urgent medical advice. Contact your clinical team or local emergency service when immediate help is needed."
         }
       ]
     },
@@ -1139,46 +1741,103 @@
       "title": "Updates",
       "fields": [
         {
-          "id": "field-1",
-          "label": "1. Main heading: Latest updates",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
+          "id": "field-36",
+          "label": "1. Small label: News and progress",
+          "selector": "[data-cms=\"field-36\"]",
+          "type": "text",
+          "value": "News and progress"
+        },
+        {
+          "id": "field-37",
+          "label": "2. Main heading: Latest updates",
+          "selector": "[data-cms=\"field-37\"]",
           "type": "text",
           "value": "Latest updates"
         },
         {
-          "id": "field-2",
-          "label": "2. Paragraph: Research developments, community stories, events and pr?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-38",
+          "label": "3. Paragraph: Research developments, community stories, events and pr?",
+          "selector": "[data-cms=\"field-38\"]",
           "type": "text",
           "value": "Research developments, community stories, events and practical foundation news. Select an update tile to read the full article."
         },
         {
-          "id": "field-3",
-          "label": "3. Paragraph: Loading updates…",
-          "selector": "#main > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)",
+          "id": "field-39",
+          "label": "4. Form label: Search updates",
+          "selector": "[data-cms=\"field-39\"]",
           "type": "text",
-          "value": "Loading updates…"
+          "value": "Search updates"
         },
         {
-          "id": "field-4",
-          "label": "4. Section heading: Stay connected to the work.",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)",
+          "id": "field-40",
+          "label": "5. Button: All updates",
+          "selector": "[data-cms=\"field-40\"]",
+          "type": "text",
+          "value": "All updates"
+        },
+        {
+          "id": "field-41",
+          "label": "6. Button: Research",
+          "selector": "[data-cms=\"field-41\"]",
+          "type": "text",
+          "value": "Research"
+        },
+        {
+          "id": "field-42",
+          "label": "7. Button: Community",
+          "selector": "[data-cms=\"field-42\"]",
+          "type": "text",
+          "value": "Community"
+        },
+        {
+          "id": "field-43",
+          "label": "8. Button: Events",
+          "selector": "[data-cms=\"field-43\"]",
+          "type": "text",
+          "value": "Events"
+        },
+        {
+          "id": "field-44",
+          "label": "9. Button: Foundation",
+          "selector": "[data-cms=\"field-44\"]",
+          "type": "text",
+          "value": "Foundation"
+        },
+        {
+          "id": "field-45",
+          "label": "10. Small label: Never miss an update",
+          "selector": "[data-cms=\"field-45\"]",
+          "type": "text",
+          "value": "Never miss an update"
+        },
+        {
+          "id": "field-46",
+          "label": "11. Section heading: Stay connected to the work.",
+          "selector": "[data-cms=\"field-46\"]",
           "type": "text",
           "value": "Stay connected to the work."
         },
         {
-          "id": "field-5",
-          "label": "5. Paragraph: Register for foundation news, research opportunities an?",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-47",
+          "label": "12. Paragraph: Register for foundation news, research opportunities an?",
+          "selector": "[data-cms=\"field-47\"]",
           "type": "text",
           "value": "Register for foundation news, research opportunities and community events."
         },
         {
-          "id": "field-6",
-          "label": "6. Button/link: Join the newsletter",
-          "selector": "#main > section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+          "id": "field-48",
+          "label": "13. Button/link: Join the newsletter",
+          "selector": "[data-cms=\"field-48\"]",
           "type": "text",
           "value": "Join the newsletter"
+        },
+        {
+          "id": "placeholder-update-search",
+          "label": "14. Placeholder: Search updates…",
+          "selector": "[data-cms-placeholder-update-search=\"placeholder-update-search\"]",
+          "type": "attribute",
+          "attribute": "placeholder",
+          "value": "Search updates…"
         }
       ]
     },
@@ -1186,23 +1845,30 @@
       "title": "404 Page",
       "fields": [
         {
-          "id": "field-1",
-          "label": "1. Main heading: That page could not be found.",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)",
+          "id": "field-13",
+          "label": "1. Small label: 404",
+          "selector": "[data-cms=\"field-13\"]",
+          "type": "text",
+          "value": "404"
+        },
+        {
+          "id": "field-14",
+          "label": "2. Main heading: That page could not be found.",
+          "selector": "[data-cms=\"field-14\"]",
           "type": "text",
           "value": "That page could not be found."
         },
         {
-          "id": "field-2",
-          "label": "2. Paragraph: The link may have moved, but the community is still rig?",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "id": "field-15",
+          "label": "3. Paragraph: The link may have moved, but the community is still rig?",
+          "selector": "[data-cms=\"field-15\"]",
           "type": "text",
           "value": "The link may have moved, but the community is still right here."
         },
         {
-          "id": "field-3",
-          "label": "3. Button/link: Return home",
-          "selector": "#main > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+          "id": "field-16",
+          "label": "4. Button/link: Return home",
+          "selector": "[data-cms=\"field-16\"]",
           "type": "text",
           "value": "Return home"
         }

@@ -286,7 +286,13 @@ function renderPageEditor() {
     <div class="page-field-card">
       <label for="page-field-${index}">${escapeHtml(field.label || field.selector || `Field ${index + 1}`)}</label>
       <textarea id="page-field-${index}" data-page-field-index="${index}"${field.type === "html" ? ' class="code-textarea"' : ""}>${escapeHtml(field.value ?? "")}</textarea>
-      <span class="field-help">${field.type === "html" ? "HTML field — keep tags like &lt;span&gt; or &lt;br&gt; if you want the same styling." : "Plain text field."}</span>
+      <span class="field-help">${
+        field.type === "html"
+          ? "HTML field — keep tags like &lt;span&gt; or &lt;br&gt; if you want the same styling."
+          : field.type === "attribute"
+            ? `Edits the ${escapeHtml(field.attribute || "attribute")} text.`
+            : "Plain text field."
+      }</span>
     </div>
   `).join("");
 }

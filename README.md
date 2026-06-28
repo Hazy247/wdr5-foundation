@@ -34,6 +34,8 @@ The homepage "Families Registered" and "Countries" numbers are controlled from t
 
 Most static page text is controlled from the **Edit pages** section in the admin page and stored in `data/page-content.json`. Choose a page from the dropdown, edit its fields, save the page-content draft, then publish.
 
+The editable page system uses small `data-cms` markers in the HTML files. If page-content edits publish successfully but do not appear on the public site, upload the latest HTML pages, `assets/js/site.js`, and `data/page-content.json` from this project. Donation amounts are included as editable fields in the Donate page editor.
+
 Update posts use one shared data file:
 
 - the **Tile summary** appears on the updates page and homepage latest-updates panel
